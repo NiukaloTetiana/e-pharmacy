@@ -36,7 +36,7 @@
 }
 
 body {
-  @apply font-inter font-normal;
+  @apply bg-[#F7F8FA] font-inter font-normal;
 }
 
 input {
