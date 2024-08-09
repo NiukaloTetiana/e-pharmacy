@@ -5,4 +5,5 @@ export * from "./Modal/Modal";
 export * from "./Layout/Layout";
 export * from "./Header/Header";
 export * from "./Header/NavBar";
+export * from "./Header/BurgerMenu";
 export * from "./ScrollUpButton/ScrollUpButton";

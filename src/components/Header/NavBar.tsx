@@ -11,7 +11,7 @@ export const NavBar = ({ className = "", toggleMenu }: INavBarProps) => {
     <nav className="flex flex-col gap-[80px] items-center justify-center lg:flex-row lg:gap-[248px]">
       <Link
         to="/"
-        className="flex gap-[14px] justify-center items-center font-semibold text-white text-[16px] md:text-[20px] leading-[1.2] tracking-[-0.03em]"
+        className="hidden lg:flex gap-[14px] justify-center items-center font-semibold text-white text-[16px] md:text-[20px] leading-[1.2] tracking-[-0.03em]"
       >
         <Icon
           id="logo"
@@ -27,7 +27,7 @@ export const NavBar = ({ className = "", toggleMenu }: INavBarProps) => {
           </NavLink>
         </li>
         <li onClick={toggleMenu} className="link w-[134px]">
-          <NavLink className="px-[9px]" to="medicine-store">
+          <NavLink className="px-[12px]" to="medicine-store">
             Medicine store
           </NavLink>
         </li>
