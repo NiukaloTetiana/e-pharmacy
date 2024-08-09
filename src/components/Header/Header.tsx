@@ -10,8 +10,8 @@ export const Header = () => {
   const isHomePage = location.pathname === "/";
   return (
     <header className={`${isHomePage ? "bg-[#59b17a]" : "bg-[#f7f8fa]"}`}>
-      <div className="container pt-[25px] mb:pt-[28px] pb-[197px] md:pb-[186px] lg:pb-[72px] flex justify-between items-center">
-        <NavBar className="hidden lg:flex" />
+      <div className="container py-[25px] mb:py-[28px] flex justify-between items-center">
+        <NavBar className="hidden lg:flex gap-[1px]" />
 
         <BurgerMenu
           isOpen={isMenuOpen}
