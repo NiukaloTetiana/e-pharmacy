@@ -42,3 +42,12 @@ body {
 input {
   @apply outline-none;
 }
+
+.active {
+  @apply text-white rounded-[24px] py-[8px] h-[30px] bg-[#59b17a];
+}
+
+.link {
+  @apply flex justify-center items-center rounded-[60px] border border-[#d9d9d9] px-[8px] h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a]  
+  relative after:content-[''] after:absolute after:right-[-3px] after:h-[15px] after:w-[4px] after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden;
+}
