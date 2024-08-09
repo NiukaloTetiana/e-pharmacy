@@ -28,13 +28,13 @@ export default {
           paddingLeft: "20px",
           paddingRight: "20px",
           "@screen md": {
-            paddingLeft: "36px",
-            paddingRight: "36px",
+            paddingLeft: "32px",
+            paddingRight: "32px",
             maxWidth: "768px",
           },
           "@screen lg": {
-            paddingLeft: "128px",
-            paddingRight: "128px",
+            paddingLeft: "96px",
+            paddingRight: "96px",
             maxWidth: "1440px",
           },
         },
