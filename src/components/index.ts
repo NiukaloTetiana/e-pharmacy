@@ -6,6 +6,7 @@ export * from "./Layout/Layout";
 export * from "./Header/Header";
 export * from "./Header/NavBar";
 export * from "./Header/BurgerMenu";
+export * from "./Header/AuthButton";
 export * from "./Footer/Footer";
 export * from "./ScrollUpButton/ScrollUpButton";
 export * from "./Description/Description";

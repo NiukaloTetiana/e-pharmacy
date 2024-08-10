@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { BurgerMenu, Icon, NavBar } from "../../components";
+import { AuthButton, BurgerMenu, Icon, NavBar } from "../../components";
 import { useModal } from "../../hooks";
 
 export const Header = () => {
@@ -48,6 +48,7 @@ export const Header = () => {
             size={32}
           />
         </button>
+        <AuthButton className="hidden lg:flex" />
       </div>
     </header>
   );

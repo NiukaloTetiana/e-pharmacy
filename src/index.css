@@ -76,3 +76,7 @@ input {
 .description {
   @apply font-normal text-[14px] md:text-[16px] leading-[1.29] md:leading-[1.25] text-[#f7f8fa];
 }
+
+.button {
+  @apply font-normal text-[14px] leading-[1] text-[#f1f1f1] bg-transparent hover:text-white focus:text-white hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-500;
+}

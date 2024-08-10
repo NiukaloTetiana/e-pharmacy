@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { Icon, NavBar } from "../../components";
+import { AuthButton, Icon, NavBar } from "../../components";
 import { useEscapeClose } from "../../hooks";
 import { handleClickOnBackdrop } from "../../helpers";
 
@@ -28,7 +28,7 @@ export const BurgerMenu = ({
       className={`${classBackdrop} fixed backdrop-blur-sm bg-[#1D1E21] bg-opacity-[45%] w-full h-full left-0 top-0 z-50 lg:hidden`}
     >
       <div
-        className={`${classMenu} relative flex flex-col justify-start items-center gap-[45px] bg-[#59B17A] px-[38px] md:px-[100px] pt-[260px] md:pt-[350px] w-[210px] sm-max:w-full md:w-[334px] ml-auto h-full transition duration-500`}
+        className={`${classMenu} relative flex flex-col justify-between items-center gap-[45px] bg-[#59B17A] px-[38px] md:px-[100px] pt-[260px] md:pt-[350px] pb-10 md:pb-[64px] w-[210px] sm-max:w-full md:w-[334px] ml-auto h-full transition duration-500`}
       >
         <button
           type="button"
@@ -53,6 +53,8 @@ export const BurgerMenu = ({
           linkClasses={["px-[20px]", "px-[12px]", "px-[17px]"]}
           toggleMenu={toggleMenu}
         />
+
+        <AuthButton className="flex flex-col md:flex-row lg:hidden" />
       </div>
     </div>
   );
