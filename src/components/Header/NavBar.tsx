@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 
-import { Icon } from "../../components";
+import { Description, Icon } from "../../components";
 import { navItems } from "../../constants";
 
 interface INavBarProps {
@@ -10,10 +10,12 @@ interface INavBarProps {
   linkListClass?: string;
   linkItemClasses?: string[];
   linkClasses?: string[];
+  className: string;
   toggleMenu?: () => void;
 }
 
 export const NavBar = ({
+  className = "hidden",
   navClass = "",
   logoClass = "",
   logoIconClass = "",
@@ -28,6 +30,7 @@ export const NavBar = ({
         <Icon id="logo" className={logoIconClass} size={32} />
         E-Pharmacy
       </Link>
+      <Description className={className} />
       <ul className={linkListClass}>
         {navItems.map((item, index) => (
           <li
