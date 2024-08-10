@@ -10,7 +10,7 @@ interface INavBarProps {
   linkListClass?: string;
   linkItemClasses?: string[];
   linkClasses?: string[];
-  className: string;
+  className?: string;
   toggleMenu?: () => void;
 }
 

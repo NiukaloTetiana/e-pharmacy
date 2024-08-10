@@ -42,7 +42,9 @@ export const Header = () => {
         >
           <Icon
             id="burger"
-            className="stroke-white fill-none w-[32px] h-[26px]"
+            className={`fill-none w-[32px] h-[26px]${
+              isHomePage ? " stroke-white" : " stroke-[#59b17a]"
+            }`}
             size={32}
           />
         </button>
