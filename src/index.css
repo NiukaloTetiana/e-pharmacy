@@ -49,5 +49,25 @@ input {
 
 .link {
   @apply flex justify-center items-center rounded-[60px] border border-[#d9d9d9] px-[8px] h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a]  
-  relative after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[6px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden;
+  relative after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden;
+}
+
+.social-link {
+  @apply flex justify-center items-center border border-[#f7f8fa7f] rounded-[10px] p-2 w-full h-full hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-300;
+}
+
+.social-icon {
+  @apply fill-[#D7EAE0] group-hover:fill-white group-focus:fill-white transition duration-300;
+}
+
+.logo {
+  @apply font-semibold text-[16px] md:text-[20px] leading-[1.2] tracking-[-0.03em];
+}
+
+.link-footer {
+  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] hover:text-[#1d1e21] focus:text-[#1d1e21] active:text-[#1d1e21] transition duration-500;
+}
+
+.description {
+  @apply font-normal text-[14px] md:text-[16px] leading-[1.29] md:leading-[1.25] text-[#f7f8fa];
 }

@@ -11,6 +11,10 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
+      boxShadow: {
+        sm: "0 4px 6px #ffffff0d",
+        md: "0 6px 8px #ffffff1a",
+      },
     },
   },
 

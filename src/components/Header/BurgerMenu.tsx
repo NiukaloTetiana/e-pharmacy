@@ -43,7 +43,14 @@ export const BurgerMenu = ({
         </button>
 
         <NavBar
-          className="flex flex-col gap-[2px] items-center w-full"
+          logoClass="hidden"
+          linkListClass="flex flex-col gap-[2px] items-center justify-center hidden:lg"
+          linkItemClasses={[
+            "w-[96px] link",
+            "w-[134px] link",
+            "w-[112px] link",
+          ]}
+          linkClasses={["px-[20px]", "px-[12px]", "px-[17px]"]}
           toggleMenu={toggleMenu}
         />
       </div>
