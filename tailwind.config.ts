@@ -12,8 +12,9 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       boxShadow: {
-        sm: "0 4px 6px #ffffff0d",
-        md: "0 6px 8px #ffffff1a",
+        sm: "0 6px 8px #ffffff0d",
+        md: "0 8px 10px #ffffff1a",
+        xl: "0 4px 6px #2860411a",
       },
     },
   },

@@ -1,11 +1,15 @@
 interface IAuthButtonProps {
   className: string;
+  btnRegClass?: string;
+  btnLogClass?: string;
   toggleMenu?: () => void;
 }
 
 export const AuthButton = ({
   toggleMenu,
   className = "",
+  btnRegClass = "",
+  btnLogClass = "",
 }: IAuthButtonProps) => {
   return (
     <>
@@ -18,7 +22,7 @@ export const AuthButton = ({
                 toggleMenu();
               }
             }}
-            className="button border border-[#f1f1f180] rounded-[60px] px-[32px] py-[16px] hover:bg-[#3F945F] focus:bg-[#3F945F] active:bg-[#3F945F]"
+            className={`button border rounded-[60px] px-[32px] py-[16px] ${btnRegClass}`}
           >
             Register
           </button>
@@ -31,7 +35,7 @@ export const AuthButton = ({
                 toggleMenu();
               }
             }}
-            className="button underline"
+            className={`button underline ${btnLogClass}`}
           >
             Login
           </button>

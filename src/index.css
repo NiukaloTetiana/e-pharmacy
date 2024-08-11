@@ -71,7 +71,7 @@ input {
     color: #fff;
     background-color: transparent;
     border: 1px solid #fff;
-    box-shadow: 0 4px 6px #ffffff0d;
+    box-shadow: 0 8px 8px #ffffff1a;
   }
 }
 
@@ -80,7 +80,15 @@ input {
 }
 
 .button {
-  @apply font-normal text-[14px] leading-[1] text-[#f1f1f1] bg-transparent hover:text-white focus:text-white hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-500;
+  @apply font-normal text-[14px] leading-[1] bg-transparent transition duration-500;
+}
+
+.btn-home {
+  @apply text-[#f1f1f1] border-[#f1f1f180] hover:text-white focus:text-white hover:border-white focus:border-white focus:shadow-md hover:shadow-md;
+}
+
+.btn-next {
+  @apply text-[#59b17a] border-[#59b17a] hover:text-[#3f945f] focus:text-[#3f945f] hover:border-[#3f945f] focus:border-[#3f945f] focus:shadow-xl hover:shadow-xl;
 }
 
 .ul-border {

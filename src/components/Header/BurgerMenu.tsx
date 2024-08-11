@@ -54,7 +54,11 @@ export const BurgerMenu = ({
           toggleMenu={toggleMenu}
         />
 
-        <AuthButton className="flex flex-col md:flex-row lg:hidden" />
+        <AuthButton
+          className="flex flex-col md:flex-row lg:hidden"
+          btnRegClass="btn-home"
+          btnLogClass="btn-home"
+        />
       </div>
     </div>
   );

@@ -61,7 +61,11 @@ export const Header = () => {
             size={32}
           />
         </button>
-        <AuthButton className="hidden lg:flex" />
+        <AuthButton
+          className="hidden lg:flex"
+          btnRegClass={`${isHomePage ? "btn-home" : "btn-next"}`}
+          btnLogClass={`${isHomePage ? "btn-home" : "btn-next"}`}
+        />
       </div>
     </header>
   );
