@@ -65,11 +65,13 @@ input {
 }
 
 .link-footer {
-  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] py-0 hover:text-[#1d1e21] focus:text-[#1d1e21] transition duration-500;
+  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] border border-transparent rounded-[30px] py-2.5 hover:text-white focus:text-white transition duration-500;
 
   &.active {
-    color: #1d1e21;
-    text-shadow: 1px 2px 4px #ffffff;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 6px #ffffff0d;
   }
 }
 
@@ -79,4 +81,8 @@ input {
 
 .button {
   @apply font-normal text-[14px] leading-[1] text-[#f1f1f1] bg-transparent hover:text-white focus:text-white hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-500;
+}
+
+.ul-border {
+  @apply relative pt-[20px] md:pt-[32px] lg:pt-[40px] before:absolute before:top-0 before:left-0 before:right-0 before:border-t before:border-[#f7f8fa4c] before:z-[1];
 }

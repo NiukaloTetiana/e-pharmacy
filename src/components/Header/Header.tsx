@@ -3,11 +3,24 @@ import { useLocation } from "react-router-dom";
 import { AuthButton, BurgerMenu, Icon, NavBar } from "../../components";
 import { useModal } from "../../hooks";
 
+import green_mobile_1x from "../../assets/images/logo/logo_green_mobile_1x.png";
+import green_mobile_2x from "../../assets/images/logo/logo_green_mobile_2x.png";
+import green_tablet_1x from "../../assets/images/logo/logo_green_tablet_1x.png";
+import green_tablet_2x from "../../assets/images/logo/logo_green_tablet_2x.png";
+
 export const Header = () => {
   const [isMenuOpen, toggleMenu] = useModal();
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+
+  const greenLogoSrc = {
+    mobile_1x: green_mobile_1x,
+    mobile_2x: green_mobile_2x,
+    tablet_1x: green_tablet_1x,
+    tablet_2x: green_tablet_2x,
+  };
+
   return (
     <header className={`${isHomePage ? "bg-[#59b17a]" : "bg-[#f7f8fa]"}`}>
       <div className="container py-[25px] mb:py-[28px] flex justify-between items-center">
@@ -16,7 +29,7 @@ export const Header = () => {
           logoClass={`flex gap-[12px] md:gap-[14px] justify-center items-center logo ${
             isHomePage ? "text-white" : "text-[#1d1e21]"
           }`}
-          logoIconClass="stroke-[#F7F8FA] fill-[#59b17a] md:size-[44px]"
+          logoSrc={isHomePage ? undefined : greenLogoSrc}
           linkListClass="hidden lg:flex gap-[1px]"
           linkItemClasses={[
             "w-[96px] link",
