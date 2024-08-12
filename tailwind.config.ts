@@ -15,6 +15,7 @@ export default {
         sm: "0 6px 8px #ffffff0d",
         md: "0 8px 10px #ffffff1a",
         xl: "0 4px 6px #2860411a",
+        "shadow-box": "0 -1px 14px 0 rgba(29, 30, 33, 0.02)",
       },
     },
   },

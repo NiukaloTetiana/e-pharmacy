@@ -1,8 +1,10 @@
+import { StockList } from "../components";
+
 const Home = () => {
   return (
     <>
       <div className="bg-[#59B17A] pt-[191px] pb-[337px] md:pt-[298px] md:pb-[414px] lg:pt-[184px] lg:pb-[302px]">
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center bg-img h-[312px] md:h-[508px] lg:w-[749px] mx-auto">
           <h1 className="w-[293px] md:w-[609px] font-semibold text-[50px] md:text-[74px] leading-[1] text-white">
             Your medication delivered
           </h1>
@@ -11,7 +13,9 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="container"></div>
+      <div className="container">
+        <StockList />
+      </div>
     </>
   );
 };
