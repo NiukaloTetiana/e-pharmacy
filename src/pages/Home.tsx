@@ -1,4 +1,6 @@
-import { StockList } from "../components";
+import { Link } from "react-router-dom";
+
+import { RunningLine, StockList } from "../components";
 
 import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
 import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
@@ -22,7 +24,7 @@ const Home = () => {
       </section>
       <StockList />
 
-      <section className="pb-[80px]">
+      <section className="pb-[40px] md:pb-[64px]">
         <div className="container">
           <div className="flex flex-col lg:flex-row gap-10 md:gap-[83px] lg:gap-[19px] rounded-[32px] bg-[#59B17A] pt-10 pb-5 px-5 md:pb-10 md:pt-[104px] md:px-[48px] lg:py-10 lg:pl-20 lg:pr-10">
             <div className="lg:py-[64px]">
@@ -34,12 +36,12 @@ const Home = () => {
                 home by connecting with your community pharmacy through our
                 online platform.
               </p>
-              <button
-                type="button"
+              <Link
+                to="medicine-store"
                 className="button border btn-home rounded-[60px] py-[13px] px-[32px] md:px-[50px] md:h-[44px]"
               >
                 Buy medicine
-              </button>
+              </Link>
             </div>
             <picture>
               <source
@@ -60,6 +62,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <RunningLine />
     </>
   );
 };

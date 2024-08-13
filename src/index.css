@@ -164,3 +164,4 @@ input {
 .span-home {
   @apply flex items-center justify-center w-[54px] h-[54px] md:w-[74px] md:h-[74px] rounded-[50%] bg-[#e7f1ed66] font-normal text-[24px] md:text-[28px] leading-[1] text-center text-[#59b17a];
 }
+
