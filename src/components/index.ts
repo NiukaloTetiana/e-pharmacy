@@ -14,3 +14,4 @@ export * from "./ScrollUpButton/ScrollUpButton";
 export * from "./Description/Description";
 export * from "./StockList/StockList";
 export * from "./RunningLine/RunningLine";
+export * from "./ReviewList/ReviewList";

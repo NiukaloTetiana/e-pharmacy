@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { RunningLine, StockList } from "../components";
+import { ReviewList, RunningLine, StockList } from "../components";
 
 import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
 import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
@@ -48,6 +48,7 @@ const Home = () => {
                 media="(min-width: 768px)"
                 srcSet={`${pharmacy_tablet_1x} 1x, ${pharmacy_tablet_2x} 2x`}
                 width="608"
+                type="image/webp"
               />
               <img
                 srcSet={`${pharmacy_mobile_1x} 1x, ${pharmacy_mobile_2x} 2x`}
@@ -64,6 +65,7 @@ const Home = () => {
       </section>
 
       <RunningLine />
+      <ReviewList />
     </>
   );
 };
