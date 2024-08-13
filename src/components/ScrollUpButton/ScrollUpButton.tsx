@@ -33,14 +33,14 @@ export const ScrollUpButton = () => {
     <button
       onClick={scrollUp}
       className={`
-        flex justify-center items-center fixed right-4 bottom-4 sm-max:bottom-2.5 sm-max:right-2.5 md:right-[35px] md:bottom-[25px] lg:right-[60px] lg:bottom-[40px] rounded-full w-12 h-12 sm-max:w-10 sm-max:h-10 bg-[#3F945F] border border-[#d9d9d97e] z-[49] hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-300 ${
+        flex justify-center items-center fixed right-4 bottom-4 sm-max:bottom-2.5 sm-max:right-2.5 md:right-[35px] md:bottom-[25px] lg:right-[60px] lg:bottom-[40px] rounded-full w-12 h-[68px] sm-max:w-8 sm-max:h-[48px] lg:w-14 lg:h-[82px] bg-[#59b17a] border-[10px] sm-max:border-[6px] border-white z-[49] shadow-scroll transition duration-300 ${
           !isVisible ? "scale-0" : "scale-1"
         }`}
     >
       <Icon
         id="arrow"
-        className="fill-[#F7F8FA] sm-max:size-[18px]"
-        size={20}
+        className="stroke-white fill-white sm-max:size-[14px] size-[18px]"
+        size={24}
       />
     </button>
   );

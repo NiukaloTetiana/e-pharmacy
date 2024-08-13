@@ -94,7 +94,12 @@ input {
 }
 
 .social-link {
-  @apply flex justify-center items-center border border-[#f7f8fa7f] rounded-[10px] p-2 w-full h-full hover:border-white focus:border-white focus:shadow-md hover:shadow-md transition duration-300;
+  @apply flex justify-center items-center border border-[#f7f8fa7f] rounded-[10px] p-2 w-full h-full transition duration-300;
+
+  &:hover,
+  &:focus {
+    @apply border-white shadow-md;
+  }
 }
 
 .social-icon {
@@ -106,13 +111,24 @@ input {
 }
 
 .link-footer {
-  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] border border-transparent rounded-[30px] py-2.5 hover:text-white focus:text-white transition duration-500;
+  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] border border-transparent rounded-[30px] py-2.5 transition duration-500;
+
+  &:hover,
+  &:focus {
+    @apply text-white border border-white shadow-shadow-link;
+  }
 
   &.active {
-    color: #fff;
-    background-color: transparent;
-    border: 1px solid #fff;
-    box-shadow: 0 8px 8px #ffffff1a;
+    @apply text-white shadow-shadow-link bg-transparent border border-white;
+  }
+}
+
+.link-stock {
+  @apply font-normal text-[13px] text-[#93939a] leading-[1.4] ml-[18px] border border-transparent bg-transparent rounded-[30px] px-2.5 py-2 transition duration-300;
+
+  &:hover,
+  &:focus {
+    @apply text-[#59b17a] underline border-[#59b17a] shadow-shadow-link;
   }
 }
 
@@ -125,7 +141,12 @@ input {
 }
 
 .btn-home {
-  @apply text-[#f1f1f1] border-[#f1f1f180] hover:text-white focus:text-white hover:border-white focus:border-white focus:shadow-md hover:shadow-md;
+  @apply text-[#f1f1f1] border-[#f1f1f180];
+
+  &:hover,
+  &:focus {
+    @apply text-white border-white shadow-md;
+  }
 }
 
 .btn-next {

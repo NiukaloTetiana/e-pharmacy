@@ -1,5 +1,10 @@
 import { StockList } from "../components";
 
+import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
+import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
+import pharmacy_tablet_1x from "../assets/images/pharmacy/pharmacy_tablet_1x.webp";
+import pharmacy_tablet_2x from "../assets/images/pharmacy/pharmacy_tablet_2x.webp";
+
 const Home = () => {
   return (
     <>
@@ -16,6 +21,45 @@ const Home = () => {
         </div>
       </section>
       <StockList />
+
+      <section className="pb-[80px]">
+        <div className="container">
+          <div className="flex flex-col lg:flex-row gap-10 md:gap-[83px] lg:gap-[19px] rounded-[32px] bg-[#59B17A] pt-10 pb-5 px-5 md:pb-10 md:pt-[104px] md:px-[48px] lg:py-10 lg:pl-20 lg:pr-10">
+            <div className="lg:py-[64px]">
+              <h2 className="lg:w-[501px] font-semibold text-[28px] md:text-[48px] leading-[1.14] tracking-[-0.01em] text-[#f1f1f1] mb-5 md:mb-[24px]">
+                Add the medicines you need online now
+              </h2>
+              <p className="w-[270px] sm-max:w-[230px] md:w-[450px] font-normal text-[14px] md:text-[16px] leading-[1.29] md:leading-[1.25] text-[#f1f1f1] mb-10">
+                Enjoy the convenience of having your prescriptions filled from
+                home by connecting with your community pharmacy through our
+                online platform.
+              </p>
+              <button
+                type="button"
+                className="button border btn-home rounded-[60px] py-[13px] px-[32px] md:px-[50px] md:h-[44px]"
+              >
+                Buy medicine
+              </button>
+            </div>
+            <picture>
+              <source
+                media="(min-width: 768px)"
+                srcSet={`${pharmacy_tablet_1x} 1x, ${pharmacy_tablet_2x} 2x`}
+                width="608"
+              />
+              <img
+                srcSet={`${pharmacy_mobile_1x} 1x, ${pharmacy_mobile_2x} 2x`}
+                src={pharmacy_mobile_1x}
+                alt="Woman looking for tablets in her phone"
+                width="295"
+                height="335"
+                loading="lazy"
+                className="sm-max:w-[280px] md:h-[406px]"
+              />
+            </picture>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

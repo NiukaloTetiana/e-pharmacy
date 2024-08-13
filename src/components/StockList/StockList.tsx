@@ -9,12 +9,7 @@ export const StockList = () => {
             </p>
             <p className="font-medium text-[24px] md:text-[36px] leading-[1.4] text-[#252539]">
               70%
-              <button
-                type="button"
-                className="font-normal text-[13px] leading-[1.4] text-[#93939a] ml-[28px]"
-              >
-                Shop now
-              </button>
+              <button className="link-stock">Shop now</button>
             </p>
           </li>
           <li className="li-home">
@@ -24,10 +19,7 @@ export const StockList = () => {
 
             <p className="font-medium text-[24px] md:text-[36px] leading-[1.4] text-[#252539]">
               100%
-              <button
-                type="button"
-                className="font-normal text-[13px] text-[#93939a] leading-[1.4] ml-[28px]"
-              >
+              <button type="button" className="link-stock">
                 Read more
               </button>
             </p>
@@ -38,10 +30,7 @@ export const StockList = () => {
             </p>
             <p className="font-medium text-[24px] md:text-[36px] leading-[1.4] text-[#252539]">
               35%
-              <button
-                type="button"
-                className="font-normal text-[13px] text-[#93939a] leading-[1.4] ml-[28px]"
-              >
+              <button type="button" className=" link-stock">
                 Shop now
               </button>
             </p>

@@ -16,6 +16,8 @@ export default {
         md: "0 8px 10px #ffffff1a",
         xl: "0 4px 6px #2860411a",
         "shadow-box": "0 -1px 14px 0 rgba(29, 30, 33, 0.02)",
+        "shadow-link": "0 8px 8px #ffffff1a",
+        scroll: "0 0 12px 4px #59b17a",
       },
     },
   },
