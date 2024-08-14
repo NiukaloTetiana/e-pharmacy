@@ -43,6 +43,10 @@ input {
   @apply outline-none;
 }
 
+.carousel-item {
+  box-sizing: border-box;
+}
+
 .bg-img {
   background-image: url("./assets/images/hero/hero_mobile_1x.webp");
 
@@ -90,7 +94,7 @@ input {
 
 .link {
   @apply flex justify-center items-center rounded-[60px] border border-[#d9d9d9] shadow-lg h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a]  
-  relative after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden;
+  relative after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden no-underline;
 }
 
 .social-link {
