@@ -8,7 +8,7 @@ export const RunningLine = () => {
     <section className="pb-[80px] md:pb-[120px]">
       <div className="container">
         <Marquee direction="right">
-          <ul className="flex justify-center items-center gap-2 md:gap-[48px]">
+          <ul className="flex justify-center items-center gap-2 md:gap-[48px] mr-2 md:mr-[48px]">
             {runningItems.map((item, index) => (
               <li
                 key={index}

@@ -1,3 +1,5 @@
+import { Icon } from "../Icon/Icon";
+
 export const ReviewList = () => {
   const reviews = [
     {
@@ -29,14 +31,14 @@ export const ReviewList = () => {
         <h2 className="font-semibold text-[28px] md:text-[36px] leading-[1.4] md:leading-[1.2] text-[#1d1e21] text-center mb-[14px]">
           Reviews
         </h2>
-        <p className="font-normal text-[14px] md:text-[16px] leading-[1.25] text-[#93939a] text-center mb-[64px] md:mb-[88px]">
+        <p className="font-normal max-w-full text-[14px] md:text-[16px] leading-[1.25] text-[#93939a] text-center mb-[24px]">
           Search for Medicine, Filter by your location
         </p>
-        <div className="carousel carousel-center flex space-x-[16px] lg:space-x-0 lg:gap-[28px]">
+        <ul className="relative carousel carousel-center flex gap-[16px] lg:gap-[28px] pt-10 md:pt-[64px]">
           {reviews.map((review, index) => (
-            <div
+            <li
               key={index}
-              className="carousel-item relative px-[16px] lg:px-[28px] pb-[32px] lg:pb-10 w-[328px] md:w-[344px] lg:w-[382px] h-[232px] rounded-[27px] border border-[#f1f1f1] bg-[#fdfdfd] shadow-lg pt-[54px] mb:pt-[24px]"
+              className="relative carousel-item box-border flex flex-col px-[16px] lg:px-[28px] pb-[32px] lg:pb-10 w-[320px] sm-max:w-[265px] md:w-[337px] lg:w-[382px] h-[232px] rounded-[27px] border border-[#f1f1f1] bg-[#fdfdfd] pt-[54px] mb:pt-[24px]"
             >
               <img
                 className="absolute w-16 h-16 -top-6 left-1/2 transform -translate-x-1/2 rounded-[50%] bg-white shadow-scroll"
@@ -50,9 +52,16 @@ export const ReviewList = () => {
               <p className="font-normal text-[16px] leading-[1.25] text-[#93939a] text-center">
                 {review.testimonial}
               </p>
-            </div>
+              {index < reviews.length - 1 && (
+                <Icon
+                  id="chevron-down"
+                  size={22}
+                  className="absolute lg:hidden top-1/2 -right-5 transform -translate-y-1/2  stroke-[#1d1e21] fill-none -rotate-90"
+                />
+              )}
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
