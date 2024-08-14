@@ -1,4 +1,4 @@
-import { Icon } from "../Icon/Icon";
+import { Icon } from "../../components";
 
 export const ReviewList = () => {
   const reviews = [
@@ -28,7 +28,7 @@ export const ReviewList = () => {
   return (
     <section className="pb-[80px] md:pb-[120px]">
       <div className="container lg:px-[119px]">
-        <h2 className="font-semibold text-[28px] md:text-[36px] leading-[1.4] md:leading-[1.2] text-[#1d1e21] text-center mb-[14px]">
+        <h2 className="font-semibold text-[28px] md:text-[40px] leading-[1.14] md:leading-[1.2] text-[#1d1e21] text-center mb-[14px]">
           Reviews
         </h2>
         <p className="font-normal max-w-full text-[14px] md:text-[16px] leading-[1.25] text-[#93939a] text-center mb-[24px]">

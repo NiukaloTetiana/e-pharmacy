@@ -15,3 +15,5 @@ export * from "./Description/Description";
 export * from "./StockList/StockList";
 export * from "./RunningLine/RunningLine";
 export * from "./ReviewList/ReviewList";
+export * from "./StoreList/StoreList";
+export * from "./StoreList/StoreItem";

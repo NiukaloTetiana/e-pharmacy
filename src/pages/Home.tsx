@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { ReviewList, RunningLine, StockList } from "../components";
+import { StoreList, ReviewList, RunningLine, StockList } from "../components";
 
 import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
 import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
@@ -23,6 +23,7 @@ const Home = () => {
         </div>
       </section>
       <StockList />
+      <StoreList />
 
       <section className="pb-[40px] md:pb-[64px]">
         <div className="container">

@@ -8,11 +8,11 @@ export const Footer = () => {
           navClass="flex flex-col md:flex-row md:items-center lg:items-start md:justify-between lg:justify-start mb-[80px] md:mb-[20px] lg:gap-[270px]"
           logoClass="flex gap-[12px] md:gap-[14px] md:justify-center items-center text-white logo mb-[20px] md:mb-0"
           className="flex w-[261px] mb-[40px] md:hidden"
-          linkListClass="flex gap-[15px] sm-max:gap-1 lg:gap-[32px]"
+          linkListClass="flex gap-[15px] sm-max:gap-[2px] lg:gap-[32px]"
           linkClasses={[
-            "link-footer px-[20px]",
-            "link-footer px-[12px]",
-            "link-footer px-[17px]",
+            "link-footer px-[20px] sm-max:px-[14px]",
+            "link-footer px-[12px] sm-max:px-[14px]",
+            "link-footer px-[17px] sm-max:px-[14px]",
           ]}
         />
 
