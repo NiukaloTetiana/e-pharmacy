@@ -101,7 +101,7 @@ input {
 }
 @media screen and (-webkit-min-device-pixel-ratio: 2),
   screen and (min-resolution: 1.5dppx) {
-  .bg-pill {
+  .bg-pill::before {
     background-image: url("./assets/images/pill/pill_mobile_2x.webp");
   }
 }
