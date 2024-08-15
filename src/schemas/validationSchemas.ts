@@ -15,7 +15,7 @@ export const registerSchema = yup.object({
     .matches(emailRegExp, "Enter a valid email")
     .max(64, "Max length must be less than 64 chars"),
   phone: yup
-    .string()
+    .number()
     .required("Phone number is required")
     .min(14, "Enter a valid phone number")
     .max(14, "Enter a valid phone number"),
