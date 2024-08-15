@@ -13,7 +13,7 @@ export const inputClass = (
   fieldName: keyof IFormData
 ): string => {
   const baseClass =
-    "w-full md:w-[280px] h-[44px] bg-white border border-[#1d1e2119] rounded-[60px] px-[18px] py-[13px] font-normal text-[12px] leading-[1.5] text-[#1d1e21] placeholder:text-[#1d1e2166] hover:shadow-lg focus:shadow-lg hover:border-[#59B17A] focus:border-[#59B17A] transition duration-300";
+    "w-full h-[44px] bg-white border border-[#1d1e2119] rounded-[60px] px-[18px] py-[13px] font-normal text-[12px] leading-[1.5] text-[#1d1e21] placeholder:text-[#1d1e2166] hover:shadow-lg focus:shadow-lg hover:border-[#59B17A] focus:border-[#59B17A] transition duration-300";
   const errorClass =
     "border-red-700 hover:border-red-700 focus:border-red-700 transition duration-300";
   const successClass =

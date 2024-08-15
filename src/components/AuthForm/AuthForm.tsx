@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { registerSchema, loginSchema } from "../../schemas/validationSchemas";
 import { inputClass, renderMessage } from "../../helpers";
 import { Icon } from "../../components";
+import { Link } from "react-router-dom";
 
 interface IFormData {
   name?: string;
@@ -50,84 +51,96 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
   };
 
   return (
-    <>
+    <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col md:flex-row md:flex-wrap md:gap-x-[14px] mb-[14px] lg:w-[574px]"
+        className={`flex flex-col mb-[14px] ${registration && "lg:w-[574px]"}`}
       >
-        {registration && (
-          <div className="relative mb-[10px] md:mb-[14px]">
+        <div
+          className={`flex flex-col gap-[10px] relative md:mb-[62px] ${
+            registration ? "md:flex-row md:flex-wrap mb-[20px]" : "mb-[128px] "
+          }`}
+        >
+          {registration && (
+            <div className="relative md:w-[280px]">
+              <input
+                type="text"
+                placeholder="User Name"
+                className={inputClass(errors, dirtyFields, "name")}
+                {...register("name")}
+              />
+              {renderMessage(errors, dirtyFields, "name")}
+            </div>
+          )}
+
+          <div className="relative md:w-[280px]">
             <input
               type="text"
-              placeholder="User Name"
-              className={inputClass(errors, dirtyFields, "name")}
-              {...register("name")}
+              placeholder="Email address"
+              className={inputClass(errors, dirtyFields, "email")}
+              {...register("email")}
             />
-            {renderMessage(errors, dirtyFields, "name")}
+            {renderMessage(errors, dirtyFields, "email")}
           </div>
-        )}
-
-        <div className="relative mb-[10px] md:mb-[14px]">
-          <input
-            type="text"
-            placeholder="Email address"
-            className={inputClass(errors, dirtyFields, "email")}
-            {...register("email")}
-          />
-          {renderMessage(errors, dirtyFields, "email")}
-        </div>
-        {registration && (
-          <div className="relative mb-[10px] md:mb-[14px]">
-            <input
-              type="tel"
-              placeholder="Phone number"
-              className={inputClass(errors, dirtyFields, "phone")}
-              autoComplete="tel"
-              {...register("phone")}
-            />
-            {renderMessage(errors, dirtyFields, "phone")}
-          </div>
-        )}
-
-        <div className="relative mb-[20px] md:mb-[62px]">
-          <input
-            type={showPass ? "text" : "password"}
-            placeholder="Password"
-            className={inputClass(errors, dirtyFields, "password")}
-            {...register("password")}
-          />
-          <button
-            type="button"
-            onClick={() => setShowPass((prev) => !prev)}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2"
-          >
-            {showPass ? (
-              <Icon id="eye" className="fill-none stroke-[#1d1e21]" size={18} />
-            ) : (
-              <Icon
-                id="eye-off"
-                className="fill-none stroke-[#1d1e21] sm-max:size-[16px]"
-                size={18}
+          {registration && (
+            <div className="relative md:w-[280px]">
+              <input
+                type="tel"
+                placeholder="Phone number"
+                className={inputClass(errors, dirtyFields, "phone")}
+                autoComplete="tel"
+                {...register("phone")}
               />
-            )}
-          </button>
-          {renderMessage(errors, dirtyFields, "password")}
+              {renderMessage(errors, dirtyFields, "phone")}
+            </div>
+          )}
+
+          <div className="relative md:w-[280px]">
+            <input
+              type={showPass ? "text" : "password"}
+              placeholder="Password"
+              className={inputClass(errors, dirtyFields, "password")}
+              {...register("password")}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPass((prev) => !prev)}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2"
+            >
+              {showPass ? (
+                <Icon
+                  id="eye"
+                  className="fill-none stroke-[#1d1e21] sm-max:size-[14px]"
+                  size={16}
+                />
+              ) : (
+                <Icon
+                  id="eye-off"
+                  className="fill-none stroke-[#1d1e21] sm-max:size-[14px]"
+                  size={16}
+                />
+              )}
+            </button>
+            {renderMessage(errors, dirtyFields, "password")}
+          </div>
         </div>
 
         <button
           type="submit"
-          className="w-full md:w-[280px] h-[44px] border-none bg-[#59b17a] rounded-[60px] py-[13px] lg:py-[16px] font-medium text-white text-center text-[14px] leading-[1.1] hover:bg-[#3f945f] focus:bg-[#3f945f] transition duration-300"
+          className="w-full 
+            relative  md:w-[280px]
+             h-[44px] border-none bg-[#59b17a] rounded-[60px] py-[13px] lg:py-[16px] font-medium text-white text-center text-[14px] leading-[1.1] hover:bg-[#3f945f] focus:bg-[#3f945f] transition duration-300"
         >
           {registration ? "Register" : "Log in"}
         </button>
       </form>
 
-      {/* <p
-        onClick={() => handleSpanClick(!registration)}
-        className="md:w-[280px] font-normal text-[12px] text-center leading-[1.5] text-[#1d1e2166]"
+      <Link
+        to={registration ? "/login" : "/register"}
+        className="block md:w-[280px] font-normal text-[12px] leading-[1.5] text-center text-[#1d1e2166]"
       >
         {registration ? "Already have an account?" : "Don't have an account?"}
-      </p> */}
-    </>
+      </Link>
+    </div>
   );
 };

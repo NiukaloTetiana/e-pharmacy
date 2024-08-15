@@ -10,8 +10,8 @@ const LogIn = () => {
         <AuthForm onClick={handleClick} />
       </div>
       <Icon
-        id="bgr-store"
-        className="absolute size-[264px] md:size-[271px] lg:size-[279px] bottom-[15px] md:bottom-[-10px] lg:bottom-0 right-[15px] md:right-[-45px] lg:right-[70px] stroke-none fill-[#59b17a14]"
+        id="bgr-auth"
+        className="absolute size-[320px] md:size-[440px] lg:size-[500px] bottom-[-130px] md:bottom-[-170px] lg:bottom-[-170px] right-[-125px] md:right-[-165px] lg:right-[-220px] stroke-none fill-[#59b17a14]"
       />
     </div>
   );

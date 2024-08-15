@@ -4,6 +4,9 @@ import { Outlet } from "react-router-dom";
 import { Footer, Header, Loader, ScrollUpButton } from "../../components";
 
 export const Layout = () => {
+  // const location = useLocation();
+  // const showFooter = !["/register", "/login"].includes(location.pathname);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
