@@ -18,7 +18,7 @@ export const StoreItem: React.FC<IStoreItem> = ({
   rating,
 }) => {
   return (
-    <li className="relative overflow-hidden flex flex-col gap-[32px] md:gap-5 p-[32px] md:p-10 w-[335px] h-[202px] sm:w-[270px] md:w-[344px] md:h-[232px] lg:w-[392px] rounded-[27px] border-[1.15px] border-[#f1f1f1] bg-[#e7f1ed] transition-transform transform hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105">
+    <li className="relative overflow-hidden flex flex-col gap-[32px] md:gap-5 p-[32px] md:p-10 w-[335px] h-[202px] sm-max:w-[280px] md:w-[344px] md:h-[232px] lg:w-[392px] rounded-[27px] border-[1.15px] border-[#f1f1f1] bg-[#e7f1ed] transition-transform transform hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105">
       <div className="flex justify-between">
         <h4 className="font-semibold text-[16px] md:text-[20px] leading-[1.4] text-[#1d1e21] truncate max-w-[123px]">
           {name}

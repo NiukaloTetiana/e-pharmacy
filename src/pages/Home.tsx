@@ -26,7 +26,7 @@ const Home = () => {
       <StoreList />
 
       <section className="pb-[40px] md:pb-[64px]">
-        <div className="container">
+        <div className="container lg:px-[96px]">
           <div className="flex flex-col lg:flex-row gap-10 md:gap-[83px] lg:gap-[19px] rounded-[32px] bg-[#59B17A] pt-10 pb-5 px-5 md:pb-10 md:pt-[104px] md:px-[48px] lg:py-10 lg:pl-20 lg:pr-10">
             <div className="lg:py-[64px]">
               <h2 className="lg:w-[501px] font-semibold text-[28px] md:text-[48px] leading-[1.14] tracking-[-0.01em] text-[#f1f1f1] mb-5 md:mb-[24px]">
