@@ -1,7 +1,9 @@
+
+
 const Medicine = () => {
   return (
-    <div className="">
-      <div className="container">Medicine</div>
+    <div className="container pt-[39px] md:pt-[55px] lg:pt-[75px]">
+      <h2 className="title">Medicine Store</h2>
     </div>
   );
 };

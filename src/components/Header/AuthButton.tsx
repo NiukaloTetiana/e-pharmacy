@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface IAuthButtonProps {
   className: string;
   btnRegClass?: string;
@@ -15,8 +17,8 @@ export const AuthButton = ({
     <>
       <ul className={`justify-center items-center gap-[14px] ${className}`}>
         <li>
-          <button
-            type="button"
+          <Link
+            to="register"
             onClick={() => {
               if (toggleMenu) {
                 toggleMenu();
@@ -25,11 +27,11 @@ export const AuthButton = ({
             className={`button border rounded-[60px] px-[32px] py-[16px] ${btnRegClass}`}
           >
             Register
-          </button>
+          </Link>
         </li>
         <li>
-          <button
-            type="button"
+          <Link
+            to="login"
             onClick={() => {
               if (toggleMenu) {
                 toggleMenu();
@@ -38,7 +40,7 @@ export const AuthButton = ({
             className={`button underline ${btnLogClass}`}
           >
             Login
-          </button>
+          </Link>
         </li>
       </ul>
     </>

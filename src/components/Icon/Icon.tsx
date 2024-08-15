@@ -2,7 +2,7 @@ import Icons from "../../assets/sprite.svg";
 
 interface IIconProps {
   id: string;
-  size: number;
+  size?: number;
   className?: string;
 }
 
