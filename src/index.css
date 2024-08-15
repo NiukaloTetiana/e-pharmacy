@@ -88,6 +88,37 @@ input {
   }
 }
 
+.bg-pill {
+  @apply relative before:content-[''] before:absolute before:-top-[57px] before:right-[20px] sm-max:before:-top-[60px] sm-max:before:right-[10px] md:before:-top-[107px] md:before:right-[19px] before:w-[95px] before:h-[93px] before:sm-max:w-[90px] before:sm-max:h-[87px] md:before:w-[179px] md:before:h-[175px];
+}
+
+.bg-pill::before {
+  background-image: url("./assets/images/pill/pill_mobile_1x.webp");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (min-resolution: 1.5dppx) {
+  .bg-pill {
+    background-image: url("./assets/images/pill/pill_mobile_2x.webp");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bg-pill::before {
+    background-image: url("./assets/images/pill/pill_desktop_1x.webp");
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (min-resolution: 1.5dppx) {
+    .bg-pill::before {
+      background-image: url("./assets/images/pill/pill_desktop_2x.webp");
+    }
+  }
+}
+
 .active {
   @apply text-white rounded-[24px] py-[8px] h-[30px] bg-[#59b17a] transition duration-300;
 }
@@ -167,4 +198,8 @@ input {
 
 .span-home {
   @apply flex items-center justify-center w-[54px] h-[54px] md:w-[74px] md:h-[74px] rounded-[50%] bg-[#e7f1ed66] font-normal text-[24px] md:text-[28px] leading-[1] text-center text-[#59b17a];
+}
+
+.title {
+  @apply font-semibold text-[28px] leading-[1.14] text-[#1d1e21] mb-10 md:mb-[32px] lg:mb-10;
 }

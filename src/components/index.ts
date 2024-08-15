@@ -17,3 +17,4 @@ export * from "./RunningLine/RunningLine";
 export * from "./ReviewList/ReviewList";
 export * from "./StoreList/StoreList";
 export * from "./StoreList/StoreItem";
+export * from "./TitleAuth/TitleAuth";
