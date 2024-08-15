@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import { AuthButton, BurgerMenu, Icon, NavBar } from "../../components";
 import { useModal } from "../../hooks";
 
-import green_mobile_1x from "../../assets/images/logo/logo_green_mobile_1x.png";
-import green_mobile_2x from "../../assets/images/logo/logo_green_mobile_2x.png";
-import green_tablet_1x from "../../assets/images/logo/logo_green_tablet_1x.png";
-import green_tablet_2x from "../../assets/images/logo/logo_green_tablet_2x.png";
+import green_mobile_1x from "../../assets/images/logo/logo_green_mobile_1x.webp";
+import green_mobile_2x from "../../assets/images/logo/logo_green_mobile_2x.webp";
+import green_tablet_1x from "../../assets/images/logo/logo_green_tablet_1x.webp";
+import green_tablet_2x from "../../assets/images/logo/logo_green_tablet_2x.webp";
 
 export const Header = () => {
   const [isMenuOpen, toggleMenu] = useModal();

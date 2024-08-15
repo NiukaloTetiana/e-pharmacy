@@ -2,10 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 
 import { navItems } from "../../constants";
 import { Description } from "../../components";
-import white_mobile_1x from "../../assets/images/logo/logo_white_mobile_1x.png";
-import white_mobile_2x from "../../assets/images/logo/logo_white_mobile_2x.png";
-import white_tablet_1x from "../../assets/images/logo/logo_white_tablet_1x.png";
-import white_tablet_2x from "../../assets/images/logo/logo_white_tablet_2x.png";
+import white_mobile_1x from "../../assets/images/logo/logo_white_mobile_1x.webp";
+import white_mobile_2x from "../../assets/images/logo/logo_white_mobile_2x.webp";
+import white_tablet_1x from "../../assets/images/logo/logo_white_tablet_1x.webp";
+import white_tablet_2x from "../../assets/images/logo/logo_white_tablet_2x.webp";
 
 interface ILogoSrc {
   mobile_1x: string;
