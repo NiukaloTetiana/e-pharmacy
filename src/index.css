@@ -124,12 +124,11 @@ input {
 }
 
 .link {
-  @apply flex justify-center items-center rounded-[60px] border border-[#d9d9d9] shadow-lg h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a]  
-  relative after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden no-underline;
+  @apply relative flex justify-center items-center rounded-[60px] border border-[#d9d9d9] shadow-lg h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a] after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden no-underline;
 }
 
 .social-link {
-  @apply flex justify-center items-center border border-[#f7f8fa7f] rounded-[10px] p-2 w-full h-full transition duration-300;
+  @apply flex justify-center items-center outline outline-[1px] outline-[#f7f8fa7f] rounded-[10px] p-2 transition duration-300;
 
   &:hover,
   &:focus {
@@ -185,7 +184,16 @@ input {
 }
 
 .btn-next {
-  @apply text-[#59b17a] border-[#59b17a] hover:text-[#3f945f] focus:text-[#3f945f] hover:border-[#3f945f] focus:border-[#3f945f] focus:shadow-xl hover:shadow-xl;
+  @apply text-[#59b17a] border-[#59b17a];
+
+  &:hover,
+  &:focus {
+    @apply text-[#3f945f] border-[#3f945f] shadow-xl;
+  }
+
+  &:active {
+    @apply text-[#3f945f] border-[#3f945f] shadow-xl;
+  }
 }
 
 .ul-border {
@@ -202,4 +210,8 @@ input {
 
 .title {
   @apply font-semibold text-[28px] leading-[1.14] text-[#1d1e21] mb-10 md:mb-[32px] lg:mb-10;
+}
+
+.text-message {
+  @apply text-[10px] lg:text-[10px] font-normal absolute bottom-0 right-[20px];
 }

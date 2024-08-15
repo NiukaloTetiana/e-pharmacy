@@ -18,3 +18,4 @@ export * from "./ReviewList/ReviewList";
 export * from "./StoreList/StoreList";
 export * from "./StoreList/StoreItem";
 export * from "./TitleAuth/TitleAuth";
+export * from "./AuthForm/AuthForm";

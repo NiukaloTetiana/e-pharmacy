@@ -24,7 +24,7 @@ export const AuthButton = ({
                 toggleMenu();
               }
             }}
-            className={`button border rounded-[60px] px-[32px] py-[16px] ${btnRegClass}`}
+            className={`button border rounded-[60px] px-[32px] py-[12px] md:py-[15px] h-[40px] md:h-[46px] ${btnRegClass}`}
           >
             Register
           </Link>
