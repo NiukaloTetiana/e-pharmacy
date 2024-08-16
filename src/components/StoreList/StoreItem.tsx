@@ -85,7 +85,7 @@ export const StoreItem: React.FC<IStoreItem> = ({
         id="bg"
         className={`absolute size-[220px] sm-max:size-[200px] md:size-[270px] lg::size-[280px] stroke-none fill-[#59b17a14] ${
           isHomePage
-            ? "-bottom-[40px] md:-bottom-[70px] lg:-bottom-[73px] -right-[95px] md:-right-[135px] lg:-right-[100px]"
+            ? "-bottom-[80px] md:-bottom-[100px] lg:-bottom-[96px] -right-[95px] md:-right-[155px] lg:-right-[105px]"
             : "rotate-100 -top-[40px] md:-top-[70px] lg:-top-[73px] -right-[95px] md:-right-[135px] lg:-right-[100px]"
         }`}
       />
