@@ -10,7 +10,7 @@ const Register = () => {
         <AuthForm registration onClick={handleClick} />
       </div>
       <Icon
-        id="bgr-auth"
+        id="bg"
         className="absolute size-[320px] md:size-[440px] lg:size-[500px] bottom-[-130px] md:bottom-[-170px] lg:bottom-[-170px] right-[-125px] md:right-[-165px] lg:right-[-220px] stroke-none fill-[#59b17a14]"
       />
     </div>
