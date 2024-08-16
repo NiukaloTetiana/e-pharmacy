@@ -120,11 +120,15 @@ input {
 }
 
 .active {
-  @apply text-white rounded-[24px] py-[8px] h-[30px] bg-[#59b17a] transition duration-300;
+  @apply text-white rounded-[24px] bg-[#59b17a] transition duration-300;
 }
 
 .link {
-  @apply relative flex justify-center items-center rounded-[60px] border border-[#d9d9d9] shadow-lg h-[46px] bg-white font-normal text-[14px] leading-[1] text-[#93939a] after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#d9d9d9] after:bg-white after:z-[1] last:after:hidden no-underline;
+  @apply relative flex justify-center items-center rounded-[60px] border border-[#f1f1f1] shadow-lg bg-white font-normal text-[14px] leading-[1] text-[#93939a] after:content-[''] after:absolute after:bottom-[-4px] lg:after:bottom-auto lg:after:right-[-4px] after:h-[4px] after:w-[15px] lg:after:h-[15px] lg:after:w-[5px] after:border-x lg:after:border-x-0 lg:after:border-y after:border-[#f1f1f1] after:bg-white after:z-[1] last:after:hidden no-underline hover:shadow-md focus:shadow-md transition duration-300;
+}
+
+.link-btn {
+  @apply py-[8px] border-[8px] border-white outline outline-[1.15px] outline-[#f1f1f1] rounded-[60px];
 }
 
 .social-link {
@@ -145,7 +149,7 @@ input {
 }
 
 .link-footer {
-  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] border border-transparent rounded-[30px] py-2.5 transition duration-500;
+  @apply font-normal text-[14px] leading-[1] text-[#f7f8fa] border border-transparent rounded-[30px] py-2.5 transition duration-300;
 
   &:hover,
   &:focus {
@@ -171,7 +175,7 @@ input {
 }
 
 .button {
-  @apply font-normal text-[14px] leading-[1] bg-transparent transition duration-500;
+  @apply font-normal text-[14px] leading-[1] bg-transparent transition duration-300;
 }
 
 .btn-home {
