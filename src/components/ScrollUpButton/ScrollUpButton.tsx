@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-
+import throttle from "lodash.throttle";
 import { Icon } from "../../components";
 
 export const ScrollUpButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
       if (scrollY > 400) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
-    };
+    }, 200);
 
     window.addEventListener("scroll", handleScroll);
 
