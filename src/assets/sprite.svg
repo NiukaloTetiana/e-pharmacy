@@ -29,7 +29,7 @@
     <symbol id="icon-lightning" viewBox="0 0 32 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.526" d="m17.403 1.965-12.5 15c-.49.587-.734.881-.738 1.129a.7.7 0 0 0 .261.556c.193.156.575.156 1.34.156H16l-1.403 11.228 12.5-15.001c.49-.587.734-.881.738-1.129a.7.7 0 0 0-.261-.556c-.193-.156-.575-.156-1.34-.156H16l1.404-11.228z"/>
     </symbol>
-    <symbol id="icon-shopping-cart" viewBox="0 0 32 32">
+    <symbol id="icon-cart" viewBox="0 0 32 32">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12.005 29.333a1.333 1.333 0 1 0 0-2.667 1.333 1.333 0 0 0 0 2.667zM26.661 29.333a1.333 1.333 0 1 0 0-2.667 1.333 1.333 0 0 0 0 2.667zM1.328 1.334h5.333l3.573 17.853a2.671 2.671 0 0 0 2.666 2.147h12.96a2.661 2.661 0 0 0 2.666-2.147L30.659 8H7.992"/>
     </symbol>
     <symbol id="icon-facebook" viewBox="0 0 32 32">

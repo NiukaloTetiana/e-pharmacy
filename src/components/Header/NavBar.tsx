@@ -63,12 +63,12 @@ export const NavBar = ({
       <Description className={className} />
       <ul className={linkListClass}>
         {navItems.map((item, index) => (
-          <li
-            key={item.path}
-            onClick={toggleMenu}
-            className={linkItemClasses[index]}
-          >
-            <NavLink className={linkClasses[index]} to={item.path}>
+          <li key={item.path} className={linkItemClasses[index]}>
+            <NavLink
+              to={item.path}
+              onClick={toggleMenu}
+              className={linkClasses[index]}
+            >
               {item.label}
             </NavLink>
           </li>

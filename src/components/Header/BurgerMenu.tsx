@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { AuthButton, Icon, NavBar } from "../../components";
+import { AuthButton, Icon, LogoutButton, NavBar } from "../../components";
 import { useEscapeClose } from "../../hooks";
 import { handleClickOnBackdrop } from "../../helpers";
 
@@ -21,6 +21,7 @@ export const BurgerMenu = ({
 
   useEscapeClose(isOpen, toggleMenu);
 
+  const isLogin = true;
   return (
     <div
       onClick={(event) => handleClickOnBackdrop(toggleMenu, event)}
@@ -45,21 +46,25 @@ export const BurgerMenu = ({
         <NavBar
           logoClass="hidden"
           linkListClass="flex flex-col gap-[2px] items-center justify-center hidden:lg"
-          linkItemClasses={[
-            "w-[96px] link",
-            "w-[134px] link",
-            "w-[112px] link",
+          linkItemClasses={["link", " link", "link"]}
+          linkClasses={[
+            "px-[20px] link-btn",
+            "px-[12px] link-btn",
+            "px-[17px] link-btn",
           ]}
-          linkClasses={["px-[20px]", "px-[12px]", "px-[17px]"]}
           toggleMenu={toggleMenu}
         />
 
-        <AuthButton
-          toggleMenu={toggleMenu}
-          className="flex flex-col md:flex-row lg:hidden"
-          btnRegClass="btn-home"
-          btnLogClass="btn-home"
-        />
+        {!isLogin ? (
+          <LogoutButton toggleMenu={toggleMenu} className="block lg:hidden" />
+        ) : (
+          <AuthButton
+            toggleMenu={toggleMenu}
+            className="flex flex-col md:flex-row lg:hidden"
+            btnRegClass="btn-home"
+            btnLogClass="btn-home"
+          />
+        )}
       </div>
     </div>
   );
