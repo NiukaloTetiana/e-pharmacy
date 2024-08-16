@@ -59,20 +59,10 @@ export const StoreList = () => {
   ];
 
   return (
-    <section className="pb-[80px] md:pb-[120px]">
-      <div className="container lg:px-[96px]">
-        <h2 className="w-[291px] md:w-full mx-auto font-semibold text-[28px] md:text-[40px] leading-[1.14] md:leading-[1.2] text-[#1d1e21] text-center mb-[14px]">
-          Your Nearest Medicine Store
-        </h2>
-        <p className="font-normal text-[14px] md:text-[16px] leading-[1.29] md:leading-[1.25] text-[#93939a] text-center mb-10 md:mb-[64px]">
-          Search for Medicine, Filter by your location
-        </p>
-        <ul className="flex flex-col md:flex-row md:flex-wrap gap-5 md:gap-y-[32px] md:gap-x-[16px] lg:gap-y-[38px] lg:gap-x-[36px]">
-          {stores.map((store, index) => (
-            <StoreItem key={index} {...store} />
-          ))}
-        </ul>
-      </div>
-    </section>
+    <ul className="flex flex-col md:flex-row md:flex-wrap gap-5 md:gap-y-[32px] md:gap-x-[16px] lg:gap-y-[38px] lg:gap-x-[36px]">
+      {stores.map((store, index) => (
+        <StoreItem key={index} {...store} />
+      ))}
+    </ul>
   );
 };
