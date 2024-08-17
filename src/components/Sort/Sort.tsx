@@ -35,7 +35,7 @@ export const Sort = ({ onSortChange, sortLabel }: ISortProps) => {
   };
 
   return (
-    <div className="relative mb-[12px]">
+    <div className="relative">
       <div
         ref={sortRef}
         onClick={handleListClick}
