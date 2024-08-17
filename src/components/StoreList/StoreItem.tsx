@@ -23,7 +23,7 @@ export const StoreItem: React.FC<IStoreItem> = ({
 
   return (
     <li
-      className={`relative overflow-hidden flex flex-col p-[32px] md:p-10 w-[335px] h-[202px] sm-max:w-[280px] md:w-[344px] rounded-[27px] border-[1.15px] border-[#f1f1f1] bg-[#e7f1ed] transition-transform transform hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 ${
+      className={`relative overflow-hidden flex flex-col p-[32px] md:p-10 w-[335px] h-[202px] sm-max:w-[280px] md:w-[344px] rounded-[27px] border-[1.15px] border-[#f1f1f1] bg-[#e7f1ed] transition-transform hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 ${
         isHomePage
           ? "md:h-[232px] lg:w-[392px] gap-[32px] md:gap-5"
           : "h-[250px] md:h-[276px] lg:w-[381px] gap-0"

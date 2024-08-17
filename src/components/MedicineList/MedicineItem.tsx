@@ -13,7 +13,7 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
   price,
 }) => {
   return (
-    <li className="">
+    <li>
       <img
         src={photo}
         className="flex items-center justify-center w-full h-[300px] md:w-[226px] md:h-[260px] lg:w-[280px] lg:h-[280px] bg-[#f7f7f7] rounded-[20px] border-[1.15px] border-[#59b17a99] mb-[8px]"
@@ -37,13 +37,13 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
         <div className="flex items-center justify-between">
           <Link
             to="/"
-            className="w-[108px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] py-[10px] rounded-[24px] bg-[#59b17a]"
+            className="w-[108px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] py-[10px] rounded-[24px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"
           >
             Add to cart
           </Link>
           <Link
             to="/"
-            className="font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline"
+            className="decoration-skip-none font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline hover:scale-125 focus:scale-125 hover:text-[#59b17a] focus:text-[#59b17a] transition-transform duration-300"
           >
             Details
           </Link>

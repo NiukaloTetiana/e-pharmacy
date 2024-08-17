@@ -20,5 +20,6 @@ export * from "./StoreList/StoreList";
 export * from "./StoreList/StoreItem";
 export * from "./TitleAuth/TitleAuth";
 export * from "./AuthForm/AuthForm";
-// export * from "./MedicineList/MedicineList";
-// export * from "./MedicineList/MedicineItem";
+export * from "./MedicineList/MedicineList";
+export * from "./MedicineList/MedicineItem";
+export * from "./Sort/Sort";
