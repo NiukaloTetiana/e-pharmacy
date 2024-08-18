@@ -60,12 +60,14 @@ export const AuthForm = ({
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={`flex flex-col mb-[14px] ${
-          registration && isAuthRoutes ? "lg:w-[574px]" : ""
+          registration && isAuthRoutes && "lg:w-[574px]"
         }`}
       >
         <div
           className={`relative flex flex-col gap-[10px] md:gap-[14px] ${
-            registration ? "md:flex-row md:flex-wrap mb-[20px]" : "mb-[128px]"
+            registration && isAuthRoutes
+              ? "md:flex-row md:flex-wrap mb-[20px]"
+              : "mb-[128px]"
           } ${isAuthRoutes ? "md:mb-[62px]" : "mb-[25px]"}`}
         >
           {registration && (

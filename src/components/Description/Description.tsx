@@ -1,12 +1,5 @@
-interface IDescriptionProps {
-  className?: string;
-}
-
-export const Description = ({ className = "" }: IDescriptionProps) => {
-  return (
-    <p className={`${className} description`}>
-      Get the medicine to help you feel better, get back to your active life,
-      and enjoy every moment.
-    </p>
-  );
+const Description = () => {
+  return <div>Description</div>;
 };
+
+export default Description;

@@ -1,4 +1,4 @@
-import { Description, Icon, NavBar } from "../../components";
+import { FooterDescription, Icon, NavBar } from "../../components";
 
 export const Footer = () => {
   return (
@@ -17,7 +17,7 @@ export const Footer = () => {
         />
 
         <div className="flex items-start justify-between md:mb-[88px] lg:mb-[64px]">
-          <Description className="hidden md:flex md:w-[261px] lg:w-[311px]" />
+          <FooterDescription className="hidden md:flex md:w-[261px] lg:w-[311px]" />
           <ul className="hidden md:flex gap-[12px] lg:absolute lg:right-[128px] lg:top-0">
             <li className="w-[44px] h-[44px]">
               <a
