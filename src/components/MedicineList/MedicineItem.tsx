@@ -60,7 +60,7 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
             </Modal>
           )}
           <Link
-            to={`/product/${id}`}
+            to={`/product/${id}/description`}
             className="decoration-skip-none font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline hover:scale-125 focus:scale-125 hover:text-[#59b17a] focus:text-[#59b17a] transition-transform duration-300"
           >
             Details

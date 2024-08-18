@@ -194,10 +194,6 @@ input {
   &:focus {
     @apply text-[#3f945f] border-[#3f945f] shadow-xl;
   }
-
-  &:active {
-    @apply text-[#3f945f] border-[#3f945f] shadow-xl;
-  }
 }
 
 .ul-border {
@@ -218,4 +214,14 @@ input {
 
 .text-message {
   @apply text-[10px] lg:text-[10px] font-normal absolute bottom-0 right-[20px];
+}
+
+.product-link {
+  @apply font-medium text-[14px] text-[#59b17a] leading-[1.18] text-center h-[33px] px-[25px] py-[8px] rounded-[40px] bg-[#59b17b1a] transition duration-300;
+
+  &:hover,
+  &:focus,
+  &.active {
+    @apply text-white bg-[#3f945f] shadow-lg;
+  }
 }
