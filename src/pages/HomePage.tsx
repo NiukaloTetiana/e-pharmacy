@@ -7,7 +7,7 @@ import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.web
 import pharmacy_tablet_1x from "../assets/images/pharmacy/pharmacy_tablet_1x.webp";
 import pharmacy_tablet_2x from "../assets/images/pharmacy/pharmacy_tablet_2x.webp";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <section className="bg-[#59B17A] pt-[172px] pb-[246px] md:pt-[161px] md:pb-[258px] lg:pt-[47px] lg:pb-[146px]">
@@ -82,4 +82,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

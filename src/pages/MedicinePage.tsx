@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Filter, Icon, MedicineList, Sort } from "../components";
 
-const Medicine = () => {
+const MedicinePage = () => {
   const [sortLabel, setSortLabel] = useState<string>("Product category");
   const [filter, setFilter] = useState<string>("");
 
@@ -37,4 +37,4 @@ const Medicine = () => {
   );
 };
 
-export default Medicine;
+export default MedicinePage;

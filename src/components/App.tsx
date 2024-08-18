@@ -4,21 +4,25 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "../components";
 // import { PrivateRoute } from "../routes";
 
-const Home = lazy(() => import("../pages/Home"));
-const Medicine = lazy(() => import("../pages/Medicine"));
-const MedicineStore = lazy(() => import("../pages/MedicineStore"));
-const Register = lazy(() => import("../pages/Register"));
-const LogIn = lazy(() => import("../pages/LogIn"));
+const HomePage = lazy(() => import("../pages/HomePage"));
+const MedicinePage = lazy(() => import("../pages/MedicinePage"));
+const MedicineStorePage = lazy(() => import("../pages/MedicineStorePage"));
+const RegisterPage = lazy(() => import("../pages/RegisterPage"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const CartPage = lazy(() => import("../pages/CartPage"));
+const ProductPage = lazy(() => import("../pages/ProductPage"));
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="medicine-store" element={<MedicineStore />} />
-        <Route path="medicine" element={<Medicine />} />
-        <Route path="register" element={<Register />} />
-        <Route path="login" element={<LogIn />} />
+        <Route index element={<HomePage />} />
+        <Route path="/medicine-store" element={<MedicineStorePage />} />
+        <Route path="/medicine" element={<MedicinePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>

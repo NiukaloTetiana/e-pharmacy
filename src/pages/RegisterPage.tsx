@@ -1,6 +1,6 @@
 import { AuthForm, Icon, TitleAuth } from "../components";
 
-const Register = () => {
+const RegisterPage = () => {
   return (
     <div className="relative overflow-hidden container lg:px-[100px] pt-[81px] md:pt-[143px] lg:pt-[201px] pb-[191px]">
       <div className="lg:flex lg:gap-[54px]">
@@ -15,4 +15,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;
