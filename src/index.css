@@ -220,8 +220,11 @@ input {
   @apply font-medium text-[14px] text-[#59b17a] leading-[1.18] text-center h-[33px] px-[25px] py-[8px] rounded-[40px] bg-[#59b17b1a] transition duration-300;
 
   &:hover,
-  &:focus,
-  &.active {
+  &:focus {
     @apply text-white bg-[#3f945f] shadow-lg;
+  }
+
+  &.active {
+    @apply text-white bg-[#59b17a];
   }
 }
