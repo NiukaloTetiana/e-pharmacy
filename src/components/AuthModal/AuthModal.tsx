@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AuthForm } from "../AuthForm/AuthForm";
 
 export const AuthModal = () => {
-  const [registration, setRegistration] = useState(false);
+  const [registration, setRegistration] = useState(true);
 
   const toggleRegistration = () => {
     setRegistration(!registration);

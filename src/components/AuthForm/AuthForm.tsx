@@ -16,7 +16,7 @@ interface IFormData {
 }
 
 interface IAuthFormProps {
-  registration: boolean;
+  registration?: boolean;
   toggleRegistration?: () => void;
 }
 

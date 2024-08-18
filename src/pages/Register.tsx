@@ -1,13 +1,11 @@
 import { AuthForm, Icon, TitleAuth } from "../components";
 
-const handleClick = () => {};
-
 const Register = () => {
   return (
     <div className="relative overflow-hidden container lg:px-[100px] pt-[81px] md:pt-[143px] lg:pt-[201px] pb-[191px]">
       <div className="lg:flex lg:gap-[54px]">
         <TitleAuth />
-        <AuthForm registration onClick={handleClick} />
+        <AuthForm registration />
       </div>
       <Icon
         id="bg"

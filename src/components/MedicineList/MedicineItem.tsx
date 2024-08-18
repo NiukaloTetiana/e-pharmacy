@@ -7,14 +7,12 @@ interface IMedicineItem {
   name: string;
   suppliers: string;
   price: string;
-  toggleMenu: () => void;
 }
 export const MedicineItem: React.FC<IMedicineItem> = ({
   photo,
   name,
   suppliers,
   price,
-  toggleMenu,
 }) => {
   const [isOpenModal, toggleModal] = useModal();
   return (
@@ -43,7 +41,6 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
           <button
             type="button"
             onClick={() => {
-              toggleMenu && toggleMenu();
               toggleModal();
             }}
             className="w-[108px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] py-[10px] rounded-[24px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"

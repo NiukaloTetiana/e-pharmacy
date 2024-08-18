@@ -1,13 +1,11 @@
 import { AuthForm, Icon, TitleAuth } from "../components";
 
-const handleClick = () => {};
-
 const LogIn = () => {
   return (
     <div className="relative overflow-hidden container lg:px-[100px] pt-[81px] md:pt-[143px] lg:pt-[201px] pb-[191px]">
       <div className="lg:flex lg:gap-[54px]">
         <TitleAuth />
-        <AuthForm onClick={handleClick} />
+        <AuthForm />
       </div>
       <Icon
         id="bg"
