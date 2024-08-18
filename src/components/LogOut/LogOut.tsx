@@ -24,9 +24,9 @@ export const LogOut = ({ toggleLogOutModal }: ILogOutProps) => {
 
   return (
     <div>
-      <p className="font-semibold text-[25px] sm-max:text-[22px] md:text-[28px] text-center leading-[1.14] text-[#1d1e21] mb-[40px]">
+      <h2 className="font-semibold text-[#1d1e21] text-center text-[28px] sm-max:text-[25px] leading-[1.14] mb-[40px]">
         Are you sure you want to log out?
-      </p>
+      </h2>
       <div className="flex gap-[25px] justify-center">
         <button
           type="button"

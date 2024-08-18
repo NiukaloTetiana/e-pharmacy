@@ -24,3 +24,4 @@ export * from "./MedicineList/MedicineList";
 export * from "./MedicineList/MedicineItem";
 export * from "./Sort/Sort";
 export * from "./Filter/Filter";
+export * from "./AuthModal/AuthModal";

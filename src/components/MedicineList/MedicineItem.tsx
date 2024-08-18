@@ -1,17 +1,22 @@
 import { Link } from "react-router-dom";
+import { AuthModal, Modal } from "../../components";
+import { useModal } from "../../hooks";
 
 interface IMedicineItem {
   photo: string;
   name: string;
   suppliers: string;
   price: string;
+  toggleMenu: () => void;
 }
 export const MedicineItem: React.FC<IMedicineItem> = ({
   photo,
   name,
   suppliers,
   price,
+  toggleMenu,
 }) => {
+  const [isOpenModal, toggleModal] = useModal();
   return (
     <li>
       <img
@@ -35,12 +40,26 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
           {suppliers}
         </p>
         <div className="flex items-center justify-between">
-          <Link
-            to="/"
+          <button
+            type="button"
+            onClick={() => {
+              toggleMenu && toggleMenu();
+              toggleModal();
+            }}
             className="w-[108px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] py-[10px] rounded-[24px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"
           >
             Add to cart
-          </Link>
+          </button>
+
+          {isOpenModal && (
+            <Modal
+              isOpen={isOpenModal}
+              toggleModal={toggleModal}
+              className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
+            >
+              <AuthModal />
+            </Modal>
+          )}
           <Link
             to="/"
             className="decoration-skip-none font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline hover:scale-125 focus:scale-125 hover:text-[#59b17a] focus:text-[#59b17a] transition-transform duration-300"

@@ -26,7 +26,7 @@ export const LogoutButton = ({ toggleMenu, className }: ILogoutButtonProps) => {
         <Modal
           isOpen={isOpenModal}
           toggleModal={toggleModal}
-          className="p-[44px] md:p-[64px]"
+          className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
         >
           <LogOut toggleLogOutModal={toggleModal} />
         </Modal>

@@ -51,12 +51,12 @@ export const Sort = ({ onSortChange, sortLabel }: ISortProps) => {
         />
       </div>
       {isListVisible && (
-        <ul className="absolute top-[50px] left-0 bg-white rounded-[20px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-normal text-[14px] md:text-[16px] leading-[1.5] text-[#1D1E21] space-y-[4px] z-[2] shadow-lg">
+        <ul className="absolute top-[50px] left-0 bg-white rounded-[20px] px-[18px] py-[16px] w-full md:w-[214px] font-normal text-[14px] md:text-[16px] leading-[1.5] text-[#1D1E21] space-y-[4px] z-[2] shadow-lg">
           {sortOptions.map((item, index) => (
             <li
               key={index}
               onClick={() => handleSortClick(item)}
-              className={`cursor-pointer hover:text-textColor transition duration-300 ${
+              className={`cursor-pointer hover:text-[#3f945f] focus:text-[#3f945f] transition duration-300 ${
                 item === sortLabel ? "text-[#59b17a]" : ""
               }`}
             >

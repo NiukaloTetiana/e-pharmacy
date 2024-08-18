@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { registerSchema, loginSchema } from "../../schemas/validationSchemas";
 import { inputClass, renderMessage } from "../../helpers";
 import { Icon } from "../../components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface IFormData {
   name?: string;
@@ -16,12 +16,17 @@ interface IFormData {
 }
 
 interface IAuthFormProps {
-  registration?: boolean;
-  onClick: (value: boolean) => void;
+  registration: boolean;
+  toggleRegistration?: () => void;
 }
 
-export const AuthForm = ({ registration }: IAuthFormProps) => {
+export const AuthForm = ({
+  registration,
+  toggleRegistration,
+}: IAuthFormProps) => {
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const isAuthRoutes = ["/register", "/login"].includes(location.pathname);
 
   const {
     register,
@@ -54,15 +59,19 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
     <div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`flex flex-col mb-[14px] ${registration && "lg:w-[574px]"}`}
+        className={`flex flex-col mb-[14px] ${
+          registration && isAuthRoutes ? "lg:w-[574px]" : ""
+        }`}
       >
         <div
-          className={`flex flex-col gap-[10px] relative md:mb-[62px] ${
-            registration ? "md:flex-row md:flex-wrap mb-[20px]" : "mb-[128px] "
-          }`}
+          className={`relative flex flex-col gap-[10px] md:gap-[14px] ${
+            registration ? "md:flex-row md:flex-wrap mb-[20px]" : "mb-[128px]"
+          } ${isAuthRoutes ? "md:mb-[62px]" : "mb-[25px]"}`}
         >
           {registration && (
-            <div className="relative md:w-[280px]">
+            <div
+              className={`relative ${isAuthRoutes ? "md:w-[280px]" : "w-full"}`}
+            >
               <input
                 type="text"
                 placeholder="User Name"
@@ -73,7 +82,9 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
             </div>
           )}
 
-          <div className="relative md:w-[280px]">
+          <div
+            className={`relative ${isAuthRoutes ? "md:w-[280px]" : "w-full"}`}
+          >
             <input
               type="text"
               placeholder="Email address"
@@ -83,7 +94,9 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
             {renderMessage(errors, dirtyFields, "email")}
           </div>
           {registration && (
-            <div className="relative md:w-[280px]">
+            <div
+              className={`relative ${isAuthRoutes ? "md:w-[280px]" : "w-full"}`}
+            >
               <input
                 type="tel"
                 placeholder="Phone number"
@@ -95,7 +108,9 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
             </div>
           )}
 
-          <div className="relative md:w-[280px]">
+          <div
+            className={`relative ${isAuthRoutes ? "md:w-[280px]" : "w-full"}`}
+          >
             <input
               type={showPass ? "text" : "password"}
               placeholder="Password"
@@ -127,20 +142,30 @@ export const AuthForm = ({ registration }: IAuthFormProps) => {
 
         <button
           type="submit"
-          className="w-full 
-            relative  md:w-[280px]
-             h-[44px] border-none bg-[#59b17a] rounded-[60px] py-[13px] lg:py-[16px] font-medium text-white text-center text-[14px] leading-[1.1] hover:bg-[#3f945f] focus:bg-[#3f945f] transition duration-300"
+          className={`relative w-full h-[44px] border-none bg-[#59b17a] rounded-[60px] py-[13px] lg:py-[16px] font-medium text-white text-center text-[14px] leading-[1.1] hover:bg-[#3f945f] focus:bg-[#3f945f] transition duration-300 ${
+            isAuthRoutes ? "md:w-[280px]" : ""
+          }`}
         >
           {registration ? "Register" : "Log in"}
         </button>
       </form>
 
-      <Link
-        to={registration ? "/login" : "/register"}
-        className="block md:w-[280px] font-normal text-[12px] leading-[1.5] text-center text-[#1d1e2166]"
-      >
-        {registration ? "Already have an account?" : "Don't have an account?"}
-      </Link>
+      {isAuthRoutes ? (
+        <Link
+          to={registration ? "/login" : "/register"}
+          className="block w-full md:w-[280px] font-normal text-[12px] leading-[1.5] text-center text-[#1d1e2166]"
+        >
+          {registration ? "Already have an account?" : "Don't have an account?"}
+        </Link>
+      ) : (
+        <button
+          onClick={toggleRegistration}
+          type="button"
+          className="w-full font-normal text-[12px] leading-[1.5] text-center text-[#1d1e2166]"
+        >
+          {registration ? "Already have an account?" : "Don't have an account?"}
+        </button>
+      )}
     </div>
   );
 };
