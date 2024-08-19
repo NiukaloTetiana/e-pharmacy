@@ -12,15 +12,6 @@ const products = [
     stock: "12",
     price: "89.66",
     category: "Medicine",
-    // Description:
-    //   "Although it's typically considered safe, excessive consumption can lead to side effects. Therefore, it's recommended to consult a healthcare professional before using moringa, especially if you're pregnant, nursing, or taking other medications. This balanced approach allows for the benefits of moringa while recognizing the importance of proper usage and caution.",
-    //  Medicinal Uses:
-    //   Antioxidant Properties: "Moringa is packed with antioxidants that help fight oxidative stress and inflammation in the body.",
-    // Anti - Diabetic Effects:"Some studies have shown that moringa leaves might lower blood sugar levels, making it a valuable supplement for managing diabetes.",
-    //  Heart Health:"The plant has been linked to reduced cholesterol levels, which is vital for heart health.",
-    // Anti - Cancer Properties:"Certain compounds in moringa, such as niazimicin, have been found to suppress the growth of cancer cells in laboratory studies.",
-    // Immune Support:"With its high vitamin C content, moringa can boost the immune system.",
-    // Digestive Aid:"Moringa can help in treating digestive disorders due to its anti-inflammatory properties.",
   },
   {
     id: "1",
