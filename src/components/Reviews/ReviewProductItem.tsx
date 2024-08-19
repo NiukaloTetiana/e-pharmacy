@@ -1,10 +1,12 @@
+import TimeAgo from "timeago-react";
+
 import { Icon } from "..";
 
 interface IReviewProductItem {
   name: string;
   photo: string;
   rating: number;
-  data: string;
+  date: string;
   review: string;
 }
 
@@ -12,7 +14,7 @@ export const ReviewProductItem: React.FC<IReviewProductItem> = ({
   name,
   photo,
   rating,
-  data,
+  date,
   review,
 }) => {
   const renderStars = () => {
@@ -57,7 +59,9 @@ export const ReviewProductItem: React.FC<IReviewProductItem> = ({
               </div>
             </div>
           </div>
-          <p className="text-[12px] text-[#1d1e2199] leading-[1.5]">{data}</p>
+          <p className="text-[12px] text-[#1d1e2199] leading-[1.5]">
+            <TimeAgo datetime={new Date(date)} />
+          </p>
         </div>
       </div>
 
