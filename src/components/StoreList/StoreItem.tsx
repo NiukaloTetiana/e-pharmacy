@@ -38,10 +38,10 @@ export const StoreItem: React.FC<IStoreItem> = ({
           {name}
         </h4>
         <div
-          className={`items-center gap-[14px] sm-max:gap-[8px] ${
+          className={`flex items-center gap-[14px] sm-max:gap-[8px] ${
             isHomePage
-              ? "flex"
-              : "flex absolute bottom-[32px] right-[32px] md:bottom-[40px] md:right-[40px]"
+              ? ""
+              : "absolute bottom-[32px] right-[32px] md:bottom-[40px] md:right-[40px]"
           }`}
         >
           <div className="flex items-center gap-[6px] sm-max:gap-[2px]">
@@ -75,7 +75,7 @@ export const StoreItem: React.FC<IStoreItem> = ({
 
       <button
         type="button"
-        className={`w-[102px] sm-max:w-[94px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] sm-max:px-[10px] py-[10px] rounded-[24px] bg-[#59b17a] mt-[32px] ${
+        className={`w-[102px] sm-max:w-[94px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] sm-max:px-[10px] py-[10px] rounded-[24px] bg-[#59b17a] mt-auto ${
           isHomePage ? "hidden" : ""
         }`}
       >
