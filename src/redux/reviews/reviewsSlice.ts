@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IReview } from "../../types";
+import type { IReview } from "../../types";
 import { getReviews } from "./reviewsOperations";
 
 export interface IReviewsSlice {
@@ -29,6 +29,11 @@ const reviewsSlice = createSlice({
         state.isLoading = false;
       });
   },
+  selectors: {
+    selectReviews: (state) => state.reviews,
+    selectIsLoadingReviews: (state) => state.isLoading,
+  },
 });
 
 export const reviewsReducer = reviewsSlice.reducer;
+export const { selectReviews, selectIsLoadingReviews } = reviewsSlice.selectors;

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { IReview } from "../../types";
+import type { IReview } from "../../types";
 import { instance } from "../../services";
 
 export const getReviews = createAsyncThunk<
