@@ -1,29 +1,15 @@
+import { useEffect } from "react";
 import { Icon } from "../../components";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { getReviews, selectReviews } from "../../redux";
 
 export const ReviewList = () => {
-  const reviews = [
-    {
-      name: "Maria Tkachuk",
-      testimonial:
-        "I recently used this medical platform to book an appointment with a specialist, and I was impressed by how easy and user-friendly the process was. Highly recommended!",
-      photo:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi4fydQCAwICuVApo9oOVC3o1ehFKpYjUwxqe5R4tl84WAMfbH8ibyGIaQpCfmk77MwKg&usqp=CAU",
-    },
-    {
-      name: "Sergey Rybachok",
-      testimonial:
-        "I had a great experience using this medical platform to access my health records. This platform is a game-changer for managing my healthcare needs.",
-      photo:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpLb2hQ2VRmGTQwkQ4JQT8EYZMOR0SpnSKXayHgZ8nqnU3aJW-OEbGVjqaZhwi9Rz_RbI&usqp=CAU",
-    },
-    {
-      name: "Natalia Chatuk",
-      testimonial:
-        "I recently had a virtual appointment with my doctor through this medical platform, and I was pleasantly surprised by how seamless the experience was.",
-      photo:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2qpAcVT2KdIPpmnyFbr1mK9KpHi1QnXHzgg&s",
-    },
-  ];
+  const dispatch = useAppDispatch();
+  const reviews = useAppSelector(selectReviews);
+
+  useEffect(() => {
+    dispatch(getReviews());
+  }, [dispatch]);
 
   return (
     <section className="pb-[80px] md:pb-[120px]">
