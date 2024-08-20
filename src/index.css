@@ -228,3 +228,27 @@ input {
     @apply text-white bg-[#59b17a];
   }
 }
+
+.custom-radio {
+  @apply relative inline-block h-[18px] w-[18px] bg-transparent border-2 rounded-full align-top border-[#12141733];
+}
+
+.custom-radio::before {
+  @apply absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%] scale-0 content-[''] h-[10px] w-[10px] bg-[#59b17a] rounded-full transition-transform duration-200 ease-in;
+}
+
+.real-radio {
+  @apply w-0 h-0 absolute opacity-0 z-[-1];
+}
+
+.real-radio:checked + .custom-radio {
+  @apply border-[#59b17a];
+}
+
+.real-radio:checked + .custom-radio::before {
+  @apply scale-100;
+}
+
+.real-radio:checked + .custom-radio + span {
+  @apply text-[#1d1e21];
+}

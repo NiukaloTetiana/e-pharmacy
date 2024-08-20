@@ -5,6 +5,7 @@ interface IFormData {
   email: string;
   phone: number;
   password: string;
+  address: string;
 }
 
 export const inputClass = (

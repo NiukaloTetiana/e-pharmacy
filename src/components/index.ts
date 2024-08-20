@@ -26,3 +26,4 @@ export * from "./Sort/Sort";
 export * from "./Filter/Filter";
 export * from "./AuthModal/AuthModal";
 export * from "./Reviews/ReviewProductItem";
+export * from "./CartForm/CartForm";
