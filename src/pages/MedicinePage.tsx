@@ -15,7 +15,7 @@ const MedicinePage = () => {
 
   console.log(filter);
   return (
-    <div className="container pt-[39px] md:pt-[55px] lg:pt-[75px] mb-[80px] md:mb-[120px]">
+    <div className="container pt-[39px] md:pt-[55px] lg:pt-[75px] pb-[80px] md:pb-[120px]">
       <h2 className="title">Medicine</h2>
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[8px] mb-[12px] md:mb-[32px] lg:mb-[40px]">
         <div className="flex flex-col md:flex-row gap-[12px] md:gap-[14px]">
