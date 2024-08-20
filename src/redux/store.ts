@@ -11,11 +11,12 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+
 import { storesReducer } from "./stores/storesSlice";
 import { authReducer, AuthState } from "./auth/authSlice";
 import { reviewsReducer } from "./reviews/reviewsSlice";
-
-// import { storesReducer, authReducer, AuthState } from "../redux";
+import { productsReducer } from "./products/productsSlice";
+import { cartReducer } from "./cart/cartSlice";
 
 const persistConfig = {
   key: "auth",
@@ -29,6 +30,8 @@ export const store = configureStore({
     auth: persistReducer<AuthState>(persistConfig, authReducer),
     stores: storesReducer,
     reviews: reviewsReducer,
+    products: productsReducer,
+    cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

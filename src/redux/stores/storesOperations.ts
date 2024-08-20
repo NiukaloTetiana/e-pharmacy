@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { IStore } from "../../types";
+import type { IStore } from "../../types";
 import { instance } from "../../services";
 
 export const getAllStores = createAsyncThunk<

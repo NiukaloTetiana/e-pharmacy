@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 
-import { IStore } from "../../types";
+import type { IStore } from "../../types";
 import { getAllStores, getNearStores } from "./storesOperations";
 
 export interface IStoresSlice {
