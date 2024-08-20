@@ -3,7 +3,7 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { IStore } from "../../types";
 import { getAllStores, getNearStores } from "./storesOperations";
 
-interface IStoresSlice {
+export interface IStoresSlice {
   stores: IStore[];
   nearStores: IStore[];
   isLoading: boolean;
