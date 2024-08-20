@@ -7,10 +7,18 @@ import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
+import { Provider } from "react-redux";
+import { persistor, store } from "./redux";
+import { PersistGate } from "redux-persist/integration/react";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
+      </Provider>
       <ToastContainer theme="dark" style={{ zIndex: 99999 }} autoClose={2000} />
     </BrowserRouter>
   </>
