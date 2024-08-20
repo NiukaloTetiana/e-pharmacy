@@ -5,3 +5,7 @@ export * from "./reviews/reviewsOperations";
 export * from "./reviews/reviewsSlice";
 export * from "./auth/authOperations";
 export * from "./auth/authSlice";
+export * from "./products/productsOperations";
+export * from "./products/productsSlice";
+export * from "./cart/cartOperations";
+export * from "./cart/cartSlice";
