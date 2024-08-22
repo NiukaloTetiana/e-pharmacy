@@ -1,14 +1,17 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { Icon } from "..";
+import { isStoreOpen } from "../../helpers";
 
 interface IStoreItem {
   name: string;
   address: string;
   city: string;
   phone: string;
+  url?: string;
   rating: number;
-  openTime?: string;
-  closeTime?: string;
+  openTime: string;
+  closeTime: string;
 }
 
 export const StoreItem: React.FC<IStoreItem> = ({
@@ -17,16 +20,22 @@ export const StoreItem: React.FC<IStoreItem> = ({
   city,
   phone,
   rating,
+  url,
+  openTime,
+  closeTime,
 }) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isOpen = isStoreOpen(openTime, closeTime);
 
   return (
     <li
+      onClick={() => navigate(url ? url : "/medicine")}
       className={`relative overflow-hidden flex flex-col p-[32px] md:p-10 w-[335px] h-[202px] sm-max:w-[280px] md:w-[344px] rounded-[27px] border-[1.15px] border-[#f1f1f1] bg-[#e7f1ed] transition-transform hover:shadow-lg focus:shadow-lg hover:scale-105 focus:scale-105 ${
         isHomePage
-          ? "md:h-[232px] lg:w-[392px] gap-[32px] md:gap-5"
-          : "h-[250px] md:h-[276px] lg:w-[381px] gap-0"
+          ? "sm-max:p-[25px] sm-max:h-[190px] md:h-[232px] lg:w-[392px] gap-[32px] md:gap-5"
+          : "h-[250px] sm-max:h-[240px] md:h-[276px] lg:w-[381px] gap-0"
       }`}
     >
       <div className="flex justify-between">
@@ -48,8 +57,14 @@ export const StoreItem: React.FC<IStoreItem> = ({
             <Icon id="star" size={16} className="fill-[#ffc531]" />
             <p className="font-medium text-[14px] text-[#1d1e21]">{rating}</p>
           </div>
-          <div className="px-[16px] py-[8px] rounded-[8px] bg-[#59b17a19] font-semibold text-[12px] leading-[1.5] tracking-[-0.02em] uppercase text-center text-[#59b17a]">
-            Open
+          <div
+            className={`px-[16px] py-[8px] rounded-[8px] font-semibold text-[12px] leading-[1.5] tracking-[-0.02em] uppercase text-center ${
+              isOpen
+                ? "bg-[#59b17a19] text-[#59b17a]"
+                : "bg-[#e850501a] text-[#E85050]"
+            }`}
+          >
+            {isOpen ? "Open" : "Close"}
           </div>
         </div>
       </div>

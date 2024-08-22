@@ -1,15 +1,36 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { StoreList, ReviewList, RunningLine, StockList } from "../components";
-
+import {
+  StoreList,
+  ReviewList,
+  RunningLine,
+  StockList,
+  Loader,
+} from "../components";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import {
+  getNearStores,
+  selectIsLoadingReviews,
+  selectIsLoadingStores,
+} from "../redux";
 import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
 import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
 import pharmacy_tablet_1x from "../assets/images/pharmacy/pharmacy_tablet_1x.webp";
 import pharmacy_tablet_2x from "../assets/images/pharmacy/pharmacy_tablet_2x.webp";
 
 const HomePage = () => {
+  const dispatch = useAppDispatch();
+  const isLoadingStores = useAppSelector(selectIsLoadingStores);
+  const isLoadingReviews = useAppSelector(selectIsLoadingReviews);
+
+  useEffect(() => {
+    dispatch(getNearStores());
+  }, [dispatch]);
+
   return (
     <>
+      {(isLoadingStores || isLoadingReviews) && <Loader />}
       <section className="bg-[#59B17A] pt-[172px] pb-[246px] md:pt-[161px] md:pb-[258px] lg:pt-[47px] lg:pb-[146px]">
         <div className="container">
           <div className="pt-[19px] md:pt-[140px] md:pl-[31px] md:pr-[83px] bg-img h-[312px] w-[331px] sm-max:w-[280px] md:h-[508px] md:w-auto lg:w-[749px] mx-auto">

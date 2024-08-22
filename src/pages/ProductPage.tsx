@@ -1,72 +1,21 @@
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 
-import { Icon } from "../components";
-
-const products = [
-  {
-    id: "0",
-    photo: "https://i.ibb.co/bLKP624/5-15-1000x1000-min.jpg",
-    name: "Aspirin",
-    suppliers: "Square",
-    stock: "12",
-    price: "89.66",
-    category: "Medicine",
-  },
-  {
-    id: "1",
-    photo: "https://i.ibb.co/Hg0zZkQ/shop-4-7-1000x1000-min.jpg",
-    name: "Paracetamol",
-    suppliers: "Acme",
-    stock: "19",
-    price: "34.16",
-    category: "Heart",
-  },
-  {
-    id: "2",
-    photo: "https://i.ibb.co/02WmJdc/5-19-1000x1000-min.jpg",
-    name: "Ibuprofen",
-    suppliers: "Beximco",
-    stock: "09",
-    price: "53.76",
-    category: "Head",
-  },
-  {
-    id: "3",
-    photo: "https://i.ibb.co/GxTVSVk/shop-4-9-1000x1000-min.jpg",
-    name: "Acetaminophen",
-    suppliers: "ACI",
-    stock: "14",
-    price: "28.57",
-    category: "Hand",
-  },
-  {
-    id: "4",
-    photo: "https://i.ibb.co/X330FTj/shop-4-10-1000x1000-min.jpg",
-    name: "Naproxen",
-    suppliers: "Uniliver",
-    stock: "10",
-    price: "56.34",
-    category: "Leg",
-  },
-  {
-    id: "5",
-    photo: "https://i.ibb.co/bLKP624/5-15-1000x1000-min.jpg",
-    name: "Amoxicillin",
-    suppliers: "Square",
-    stock: "25",
-    price: "45.99",
-    category: "Medicine",
-  },
-];
+import { AuthModal, Icon, Modal } from "../components";
+import { useAppDispatch, useAppSelector, useModal } from "../hooks";
+import { getOneProduct, selectOneProduct } from "../redux";
 
 const ProductPage = () => {
+  const dispatch = useAppDispatch();
+  const [isOpenModal, toggleModal] = useModal();
   const { id } = useParams();
-  const currentProduct = products.find((product) => product.id === id);
+  const currentProduct = useAppSelector(selectOneProduct);
 
-  if (!currentProduct) {
-    return <div>No product information available</div>;
-  }
+  useEffect(() => {
+    id && dispatch(getOneProduct(id));
+  }, [dispatch, id]);
+
+  if (!currentProduct) return;
 
   return (
     <div className="container pb-[80px] md:pb-[120px]">
@@ -111,6 +60,9 @@ const ProductPage = () => {
                 />
               </button>
               <button
+                onClick={() => {
+                  toggleModal();
+                }}
                 type="button"
                 className="w-[140px] sm-max:w-[108px] font-medium text-[14px] text-white leading-[1.29] text-center px-[32px] sm-max:px-[15px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"
               >
@@ -119,6 +71,16 @@ const ProductPage = () => {
             </div>
           </div>
         </div>
+
+        {isOpenModal && (
+          <Modal
+            isOpen={isOpenModal}
+            toggleModal={toggleModal}
+            className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
+          >
+            <AuthModal />
+          </Modal>
+        )}
 
         <div className="p-5 md:p-[32px] lg:p-10 pb-10 md:pb-[64px] lg:pb-[80px] bg-white rounded-[20px] lg:w-full">
           <div className="flex items-center gap-[8px] mb-5 md:mb-[32px] lg:mb-10">
