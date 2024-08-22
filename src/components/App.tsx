@@ -2,9 +2,10 @@ import { lazy, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { Layout, Loader } from "../components";
-import { refreshUser, selectIsRefreshing } from "../redux";
+import { getCart, refreshUser, selectIsRefreshing } from "../redux";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { PrivateRoute, PublicRoute } from "../routes";
+import { toast } from "react-toastify";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const MedicinePage = lazy(() => import("../pages/MedicinePage"));
@@ -21,7 +22,17 @@ export const App = () => {
   const isRefreshing = useAppSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    const refresh = async () => {
+      try {
+        await dispatch(refreshUser()).unwrap();
+
+        await dispatch(getCart()).unwrap();
+      } catch (error) {
+        toast.error(error as string);
+      }
+    };
+
+    refresh();
   }, [dispatch]);
 
   return isRefreshing ? (
