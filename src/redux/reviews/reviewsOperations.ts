@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 import type { IReview } from "../../types";
 import { instance } from "../../services";
@@ -13,8 +14,8 @@ export const getReviews = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });

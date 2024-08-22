@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 import {
   ILoginRequest,
@@ -21,8 +22,8 @@ export const registerUser = createAsyncThunk<
     await thunkAPI.dispatch(loginUser({ email, password }));
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return thunkAPI.rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return thunkAPI.rejectWithValue(error.response?.data.message);
     }
   }
 });
@@ -38,8 +39,8 @@ export const loginUser = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });
@@ -54,8 +55,8 @@ export const logoutUser = createAsyncThunk<
 
     clearToken();
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });
@@ -79,8 +80,8 @@ export const refreshUser = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return thunkAPI.rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return thunkAPI.rejectWithValue(error.response?.data.message);
     }
   }
 });

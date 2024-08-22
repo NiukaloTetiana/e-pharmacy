@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 import type { IProduct } from "../../types";
 import { instance } from "../../services";
@@ -17,8 +18,8 @@ export const getProducts = createAsyncThunk<
 
       return data;
     } catch (error) {
-      if (error instanceof Error) {
-        return rejectWithValue(error.message);
+      if (axios.isAxiosError(error)) {
+        return rejectWithValue(error.response?.data.message);
       }
     }
   }
@@ -34,8 +35,8 @@ export const getOneProduct = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });

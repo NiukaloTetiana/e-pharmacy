@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 import type { ICart, ICartProduct, INewOrder, IOrder } from "../../types";
 import { instance } from "../../services";
@@ -13,8 +14,8 @@ export const getCart = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });
@@ -29,8 +30,8 @@ export const updateCart = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });
@@ -45,8 +46,8 @@ export const addOrder = createAsyncThunk<
 
     return data;
   } catch (error) {
-    if (error instanceof Error) {
-      return rejectWithValue(error.message);
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
 });
