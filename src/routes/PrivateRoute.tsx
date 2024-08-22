@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
-// import { useSelector } from "react-redux";
-// import { selectIsLogin, selectIsRefreshing } from "../redux/auth/selectors";
+import { selectIsLoggedIn, selectIsRefreshing } from "../redux";
+import { useAppSelector } from "../hooks";
 
 interface IPrivateRouteProps {
   children: ReactNode;
@@ -10,12 +10,10 @@ interface IPrivateRouteProps {
 
 export const PrivateRoute = ({ children }: IPrivateRouteProps) => {
   const location = useLocation();
-  const isRefreshing = "";
-  // useSelector(selectIsRefreshing);
-  const isLogin = "";
-  // useSelector(selectIsLogin);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
+  const isRefreshing = useAppSelector(selectIsRefreshing);
 
-  if (!isLogin && !isRefreshing) {
+  if (!isLoggedIn && !isRefreshing) {
     return <Navigate state={{ from: location }} to="/login" />;
   }
 

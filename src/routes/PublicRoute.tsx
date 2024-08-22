@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
-// import { useSelector } from "react-redux";
-// import { selectIsLogin } from "../redux/auth/selectors";
+import { selectIsLoggedIn } from "../redux";
+import { useAppSelector } from "../hooks";
 
 interface IPublicRouteProps {
   children: ReactNode;
@@ -10,10 +10,9 @@ interface IPublicRouteProps {
 
 export const PublicRoute = ({ children }: IPublicRouteProps) => {
   const location = useLocation();
-  const isLogin = "";
-  // useSelector(selectIsLogin);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
-  if (isLogin) {
+  if (isLoggedIn) {
     return <Navigate to={location.state?.from || "/medicine"} />;
   }
   return children;
