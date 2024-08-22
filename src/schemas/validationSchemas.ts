@@ -33,11 +33,7 @@ export const loginSchema = yup.object().shape({
     .email("Enter a valid email")
     .matches(emailRegExp, "Enter a valid email")
     .max(64, "Max length must be less than 64 chars"),
-  password: yup
-    .string()
-    .required("Password is required")
-    .min(8, "Min length must be more than 8 chars")
-    .max(64, "Max length must be less than 64 chars"),
+  password: yup.string().required("Password is required"),
 });
 
 export const cartSchema = yup.object().shape({

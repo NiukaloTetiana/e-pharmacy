@@ -7,14 +7,16 @@ import {
   NavBar,
   UserBar,
 } from "../../components";
-import { useModal } from "../../hooks";
+import { useAppSelector, useModal } from "../../hooks";
 
 import green_mobile_1x from "../../assets/images/logo/logo_green_mobile_1x.webp";
 import green_mobile_2x from "../../assets/images/logo/logo_green_mobile_2x.webp";
 import green_tablet_1x from "../../assets/images/logo/logo_green_tablet_1x.webp";
 import green_tablet_2x from "../../assets/images/logo/logo_green_tablet_2x.webp";
+import { selectIsLoggedIn } from "../../redux";
 
 export const Header = () => {
+  const isLogin = useAppSelector(selectIsLoggedIn);
   const [isMenuOpen, toggleMenu] = useModal();
 
   const location = useLocation();
@@ -26,8 +28,6 @@ export const Header = () => {
     tablet_1x: green_tablet_1x,
     tablet_2x: green_tablet_2x,
   };
-
-  const isLogin = true;
 
   return (
     <header className={`${isHomePage ? "bg-[#59b17a]" : "bg-[#f7f8fa]"}`}>
@@ -53,7 +53,7 @@ export const Header = () => {
           classMenu={`${isMenuOpen ? "translate-y-0" : "translate-y-[-100%]"}`}
         />
         <div className="flex items-center gap-[10px] md:gap-[16px] sm-max:gap-[2px]">
-          {!isLogin ? (
+          {isLogin ? (
             <UserBar toggleMenu={toggleMenu} />
           ) : (
             <AuthButton

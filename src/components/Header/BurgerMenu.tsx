@@ -1,8 +1,9 @@
 import { useRef } from "react";
 
 import { AuthButton, Icon, LogoutButton, NavBar } from "../../components";
-import { useEscapeClose } from "../../hooks";
+import { useAppSelector, useEscapeClose } from "../../hooks";
 import { handleClickOnBackdrop } from "../../helpers";
+import { selectIsLoggedIn } from "../../redux";
 
 interface IBurgerMenuProps {
   classBackdrop: string;
@@ -17,11 +18,11 @@ export const BurgerMenu = ({
   classMenu,
   isOpen,
 }: IBurgerMenuProps) => {
+  const isLogin = useAppSelector(selectIsLoggedIn);
   const backdropRef = useRef(null);
 
   useEscapeClose(isOpen, toggleMenu);
 
-  const isLogin = true;
   return (
     <div
       onClick={(event) => handleClickOnBackdrop(toggleMenu, event)}
@@ -55,7 +56,7 @@ export const BurgerMenu = ({
           toggleMenu={toggleMenu}
         />
 
-        {!isLogin ? (
+        {isLogin ? (
           <LogoutButton toggleMenu={toggleMenu} className="block lg:hidden" />
         ) : (
           <AuthButton

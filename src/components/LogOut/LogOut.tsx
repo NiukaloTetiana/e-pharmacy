@@ -1,28 +1,30 @@
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
-// import { Loader } from "../../components";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { logoutUser, selectIsRefreshing } from "../../redux";
+import { Loader } from "../../components";
 
 interface ILogOutProps {
   toggleLogOutModal: () => void;
 }
 
 export const LogOut = ({ toggleLogOutModal }: ILogOutProps) => {
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector(selectIsRefreshing);
+
   const handleLogout = () => {
-    //     isLoading(true);
-    //       .then(() => {
-    //         toast.info(
-    //           "In order to see , please log in."
-    //         );
-    //       })
-    //       .catch(() => {
-    //         toast.error("Oops...Something wrong.");
-    //       })
-    //       .finally(() => {
-    //         isLoading(false);
-    //       });
+    dispatch(logoutUser())
+      .then(() => {
+        toast.info("If you want to continue shopping, you must log in.");
+      })
+      .catch(() => {
+        toast.error("Oops... Something went wrong.");
+      });
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div>
       <h2 className="font-semibold text-[#1d1e21] text-center text-[28px] sm-max:text-[25px] leading-[1.14] mb-[40px]">
         Are you sure you want to log out?
@@ -43,7 +45,6 @@ export const LogOut = ({ toggleLogOutModal }: ILogOutProps) => {
           Cancel
         </button>
       </div>
-      {/* {isLoading && <Loader />} */}
     </div>
   );
 };

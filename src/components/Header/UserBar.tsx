@@ -1,5 +1,8 @@
 import { useLocation } from "react-router-dom";
+
 import { Icon, LogoutButton } from "../../components";
+import { useAppSelector } from "../../hooks";
+import { selectUser } from "../../redux";
 
 interface IUserBarProps {
   className?: string;
@@ -7,6 +10,7 @@ interface IUserBarProps {
 }
 
 export const UserBar = ({ className, toggleMenu }: IUserBarProps) => {
+  const { name } = useAppSelector(selectUser);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
@@ -19,9 +23,9 @@ export const UserBar = ({ className, toggleMenu }: IUserBarProps) => {
             0
           </p>
         </div>
-        <p className="flex items-center justify-center w-[40px] h-[40px] md:w-[44px] md:h-[44px] rounded-[50%] bg-[#D7EAE0] font-semibold text-[18px] text-[#59b17a]">
-          {/* {userName} */}I
-        </p>
+        <div className="flex items-center justify-center shrink-0 w-[40px] h-[40px] md:w-[44px] md:h-[44px] rounded-[50%] bg-[#D7EAE0] font-semibold text-[18px] text-[#59b17a]">
+          {name && name[0]}
+        </div>
       </div>
 
       <LogoutButton

@@ -12,6 +12,7 @@ export interface IAuthSlice {
   refreshToken: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
+  isLoading: boolean;
 }
 
 const initialState: IAuthSlice = {
@@ -20,6 +21,7 @@ const initialState: IAuthSlice = {
   refreshToken: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -30,14 +32,14 @@ const authSlice = createSlice({
     builder
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.accessToken = action.payload.accessToken;
         state.refreshToken = action.payload.refreshToken;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -46,29 +48,25 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
+      .addCase(refreshUser.rejected, (state) => {
+        state.isRefreshing = false;
+      })
       .addCase(logoutUser.fulfilled, () => {
         return initialState;
       })
       .addMatcher(
-        isAnyOf(
-          registerUser.pending,
-          loginUser.pending,
-          refreshUser.pending,
-          logoutUser.pending
-        ),
+        isAnyOf(registerUser.pending, loginUser.pending, logoutUser.pending),
         (state) => {
-          state.isRefreshing = true;
+          state.isLoading = true;
         }
       )
       .addMatcher(
-        isAnyOf(
-          registerUser.rejected,
-          loginUser.rejected,
-          refreshUser.rejected,
-          logoutUser.rejected
-        ),
+        isAnyOf(registerUser.rejected, loginUser.rejected, logoutUser.rejected),
         (state) => {
-          state.isRefreshing = false;
+          state.isLoading = false;
         }
       );
   },
@@ -77,10 +75,15 @@ const authSlice = createSlice({
     selectUser: (state) => state.user,
     selectIsLoggedIn: (state) => state.isLoggedIn,
     selectIsRefreshing: (state) => state.isRefreshing,
+    selectIsLoadingAuth: (state) => state.isLoading,
   },
 });
 
 export const authReducer = authSlice.reducer;
-export const { selectUser, selectIsLoggedIn, selectIsRefreshing } =
-  authSlice.selectors;
+export const {
+  selectUser,
+  selectIsLoggedIn,
+  selectIsLoadingAuth,
+  selectIsRefreshing,
+} = authSlice.selectors;
 export type AuthState = ReturnType<typeof authReducer>;

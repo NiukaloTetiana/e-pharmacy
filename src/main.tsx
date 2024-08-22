@@ -19,7 +19,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <App />
         </PersistGate>
       </Provider>
-      <ToastContainer theme="dark" style={{ zIndex: 99999 }} autoClose={2000} />
+      <ToastContainer
+        theme="light"
+        style={{ zIndex: 99999 }}
+        autoClose={2000}
+      />
     </BrowserRouter>
   </>
 );
