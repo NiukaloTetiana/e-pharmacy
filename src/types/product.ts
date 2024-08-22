@@ -10,7 +10,7 @@ export interface IDescription {
 export interface IReviewProduct {
   name: string;
   photo: string;
-  rating: string;
+  rating: number;
   date: string;
   review: string;
 }
