@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast } from "react-toastify";
+import { Link, useLocation } from "react-router-dom";
 
 import { registerSchema, loginSchema } from "../../schemas/validationSchemas";
 import { inputClass, renderMessage } from "../../helpers";
+import { useAppDispatch } from "../../hooks";
+import { getCart, loginUser, registerUser } from "../../redux";
 import { Icon } from "../../components";
-import { Link, useLocation } from "react-router-dom";
 
 interface IFormData {
   name?: string;
@@ -27,6 +29,8 @@ export const AuthForm = ({
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const isAuthRoutes = ["/register", "/login"].includes(location.pathname);
+  const dispatch = useAppDispatch();
+  // const isRefreshing = useAppSelector(selectIsRefreshing);
 
   const {
     register,
@@ -38,20 +42,23 @@ export const AuthForm = ({
     resolver: yupResolver(registration ? registerSchema : loginSchema),
   });
 
-  const onSubmit: SubmitHandler<IFormData> = async ({ name }) => {
+  const onSubmit: SubmitHandler<IFormData> = async ({
+    name,
+    email,
+    phone,
+    password,
+  }) => {
     try {
-      // isLoading(true);
-      if (registration) {
-        // const res = await registerUser({ name, email, phone, password });
+      if (registration && name && phone) {
+        await dispatch(registerUser({ name, email, phone, password }));
         toast.success(`Yohoo! ${name}, you are successfully registered!`);
       } else {
-        // const res = await loginUser({ email, password });
+        dispatch(loginUser({ email, password }));
         toast.success(`Welcome back!`);
       }
+      dispatch(getCart());
     } catch (e) {
       toast.error((e as Error).message);
-    } finally {
-      // isLoading(false);
     }
   };
 
