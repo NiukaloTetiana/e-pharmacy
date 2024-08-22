@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Filter, Icon, MedicineList, Sort } from "../components";
+import { useAppDispatch } from "../hooks";
+import { getProducts } from "../redux";
 
 const MedicinePage = () => {
+  const dispatch = useAppDispatch();
   const [sortLabel, setSortLabel] = useState<string>("Product category");
   const [filter, setFilter] = useState<string>("");
+
+  useEffect(() => {
+    const params = { page: 1, limit: 9, name: "", category: "" };
+    dispatch(getProducts(params));
+  }, [dispatch]);
 
   const handleSortChange = (value: string) => {
     setSortLabel(value);

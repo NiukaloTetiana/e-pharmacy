@@ -4,7 +4,6 @@ import { Icon } from "..";
 
 interface IReviewProductItem {
   name: string;
-  photo: string;
   rating: number;
   date: string;
   review: string;
@@ -12,7 +11,6 @@ interface IReviewProductItem {
 
 export const ReviewProductItem: React.FC<IReviewProductItem> = ({
   name,
-  photo,
   rating,
   date,
   review,
@@ -31,14 +29,10 @@ export const ReviewProductItem: React.FC<IReviewProductItem> = ({
   return (
     <li className="py-[14px] px-[28px] sm-max:px-[20px] rounded-[20px] border border-[#f1f1f1]">
       <div className="flex gap-5 sm-max:gap-[10px] mb-[14px]">
-        <img
-          src={photo}
-          width="44"
-          height="44"
-          className="w-[44px] h-[44px] sm-max:w-[40px] sm-max:h-[40px] bg-[#f7f7f7] rounded-[50%]"
-          alt={name}
-          loading="lazy"
-        />
+        <div className="flex items-center justify-center shrink-0 w-[44px] h-[44px] sm-max:w-[40px] sm-max:h-[40px] bg-[#59b17b1a] font-semibold text-[#59b17a] rounded-[50%]">
+          {name[0]}
+        </div>
+
         <div className="w-full">
           <div className="flex justify-between mb-[4px]">
             <h4 className="font-semibold text-[16px] sm-max:text-[14px] md:text-[18px] leading-[1.4] text-[#1d1e21]">
