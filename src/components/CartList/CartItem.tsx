@@ -42,26 +42,26 @@ export const CartItem: React.FC<ICartItemProps> = ({
             ৳&nbsp;{price}
           </p>
         </div>
-        <div className="flex sm-max:flex-col sm-max:gap-1 gap-0 sm-max:items-start items-center justify-between sm-max:mt-[5px] mt-auto">
+        <div className="flex sm-max:flex-col sm-max:gap-1 gap-0 sm-max:items-start items-center md:items-end justify-between sm-max:mt-[5px] mt-auto">
           <button
             type="button"
-            className="flex items-center justify-center gap-[12px] w-[95px] h-[32px] font-normal text-[14px] text-[#1d1e21] leading-[1.43] px-[14px] py-[6px] rounded-[60px] border border-[#1d1e2119] bg-transparent hover:border-[#59b17a] focus:border-[#59b17a] hover:shadow-lg focus:shadow-lg transition duration-300"
+            className="flex items-center justify-center gap-[12px] w-[95px] h-[32px] md:w-[108px] md:h-[44px] font-normal text-[14px] md:text-[16px] text-[#1d1e21] leading-[1.43] md:leading-[1.25] px-[14px] py-[6px] md:px-[16px] md:py-[12px] rounded-[60px] border border-[#1d1e2119] bg-transparent hover:border-[#59b17a] focus:border-[#59b17a] hover:shadow-lg focus:shadow-lg transition duration-300"
           >
             <Icon
               id="plus"
               size={18}
-              className="fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
+              className="md:size-[20px] fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
             />
             1
             <Icon
               id="minus"
               size={18}
-              className="fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
+              className="md:size-[20px] fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
             />
           </button>
           <button
             type="button"
-            className="w-[89px] sm-max:w-[95px] h-[32px] font-medium text-[14px] text-[#e85050] leading-[1] tracking-[-0.05em] text-center px-[12px] py-[8px] rounded-[40px] bg-[#e8505019] hover:shadow-lg focus:shadow-lg transition duration-300"
+            className="w-[89px] sm-max:w-[95px] h-[32px] md:h-[33px] font-medium text-[14px] text-[#e85050] leading-[1] tracking-[-0.05em] text-center px-[12px] py-[8px] rounded-[40px] bg-[#e8505019] hover:shadow-lg focus:shadow-lg transition duration-300"
           >
             Remove
           </button>
