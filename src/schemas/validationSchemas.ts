@@ -17,8 +17,8 @@ export const registerSchema = yup.object({
   phone: yup
     .string()
     .required("Phone number is required")
-    .min(14, "Enter a valid phone number")
-    .max(14, "Enter a valid phone number"),
+    .min(13, "Enter a valid phone number")
+    .max(13, "Enter a valid phone number"),
   password: yup
     .string()
     .required("Password is required")
@@ -55,8 +55,8 @@ export const cartSchema = yup.object().shape({
   phone: yup
     .string()
     .required("Phone number is required")
-    .min(14, "Enter a valid phone number")
-    .max(14, "Enter a valid phone number"),
+    .min(13, "Enter a valid phone number")
+    .max(13, "Enter a valid phone number"),
   address: yup
     .string()
     .required("Address is required")
