@@ -24,7 +24,7 @@ export const UserBar = ({ className, toggleMenu }: IUserBarProps) => {
           </p>
         </div>
         <div className="flex items-center justify-center shrink-0 w-[40px] h-[40px] md:w-[44px] md:h-[44px] rounded-[50%] bg-[#D7EAE0] font-semibold text-[18px] text-[#59b17a]">
-          {name && name[0]}
+          {name && name[0].toUpperCase()}
         </div>
       </div>
 
