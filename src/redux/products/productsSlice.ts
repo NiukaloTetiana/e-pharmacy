@@ -8,6 +8,7 @@ export interface IProductsSlice {
   oneProduct: IProduct | null;
   isLoading: boolean;
   page: number;
+  total: number;
 }
 
 const initialState: IProductsSlice = {
@@ -15,6 +16,7 @@ const initialState: IProductsSlice = {
   oneProduct: null,
   isLoading: false,
   page: 1,
+  total: 0,
 };
 
 const productsSlice = createSlice({
@@ -24,7 +26,8 @@ const productsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
-        state.products = action.payload;
+        state.products = action.payload.products;
+        state.total = action.payload.total;
         state.isLoading = false;
       })
       .addCase(getOneProduct.fulfilled, (state, action) => {

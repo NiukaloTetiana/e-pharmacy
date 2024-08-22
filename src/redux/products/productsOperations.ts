@@ -4,7 +4,7 @@ import type { IProduct } from "../../types";
 import { instance } from "../../services";
 
 export const getProducts = createAsyncThunk<
-  IProduct[],
+  { products: IProduct[]; total: number },
   { page: number; limit: number; name: string; category: string },
   { rejectValue: string }
 >(
