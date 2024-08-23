@@ -1,11 +1,16 @@
 import { lazy, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { Layout, Loader } from "../components";
-import { getCart, refreshUser, selectIsRefreshing } from "../redux";
+import {
+  getCart,
+  refreshUser,
+  selectIsLoggedIn,
+  selectIsRefreshing,
+} from "../redux";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { PrivateRoute, PublicRoute } from "../routes";
-import { toast } from "react-toastify";
 
 const HomePage = lazy(() => import("../pages/HomePage"));
 const MedicinePage = lazy(() => import("../pages/MedicinePage"));
@@ -20,20 +25,23 @@ const Reviews = lazy(() => import("../components/Reviews/Reviews"));
 export const App = () => {
   const dispatch = useAppDispatch();
   const isRefreshing = useAppSelector(selectIsRefreshing);
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   useEffect(() => {
     const refresh = async () => {
-      try {
-        await dispatch(refreshUser()).unwrap();
+      await dispatch(refreshUser()).unwrap();
 
-        await dispatch(getCart()).unwrap();
+      try {
+        if (isLoggedIn) {
+          await dispatch(getCart()).unwrap();
+        }
       } catch (error) {
         toast.error(error as string);
       }
     };
 
     refresh();
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <Loader />

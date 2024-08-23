@@ -2,6 +2,7 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 
 import type { ICart, IOrder } from "../../types";
 import { addOrder, getCart, updateCart } from "./cartOperations";
+import { logoutUser } from "../auth/authOperations";
 
 export interface ICartSlice {
   cart: ICart | null;
@@ -32,6 +33,9 @@ const cartSlice = createSlice({
       .addCase(addOrder.fulfilled, (state, action) => {
         state.order = action.payload;
         state.isLoading = false;
+      })
+      .addCase(logoutUser.fulfilled, () => {
+        return initialState;
       })
       .addMatcher(
         isAnyOf(getCart.pending, updateCart.pending, addOrder.pending),

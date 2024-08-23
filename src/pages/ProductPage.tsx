@@ -1,13 +1,12 @@
 import { Suspense, useEffect } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 
-import { AuthModal, Icon, Modal } from "../components";
-import { useAppDispatch, useAppSelector, useModal } from "../hooks";
+import { CartButton, Icon } from "../components";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { getOneProduct, selectOneProduct } from "../redux";
 
 const ProductPage = () => {
   const dispatch = useAppDispatch();
-  const [isOpenModal, toggleModal] = useModal();
   const { id } = useParams();
   const currentProduct = useAppSelector(selectOneProduct);
 
@@ -59,28 +58,11 @@ const ProductPage = () => {
                   className="fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
                 />
               </button>
-              <button
-                onClick={() => {
-                  toggleModal();
-                }}
-                type="button"
-                className="w-[140px] sm-max:w-[108px] font-medium text-[14px] text-white leading-[1.29] text-center px-[32px] sm-max:px-[15px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"
-              >
-                Add to cart
-              </button>
+
+              <CartButton _id={id || ""} />
             </div>
           </div>
         </div>
-
-        {isOpenModal && (
-          <Modal
-            isOpen={isOpenModal}
-            toggleModal={toggleModal}
-            className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
-          >
-            <AuthModal />
-          </Modal>
-        )}
 
         <div className="p-5 md:p-[32px] lg:p-10 pb-10 md:pb-[64px] lg:pb-[80px] bg-white rounded-[20px] lg:w-full">
           <div className="flex items-center gap-[8px] mb-5 md:mb-[32px] lg:mb-10">

@@ -29,3 +29,4 @@ export * from "./Reviews/ReviewProductItem";
 export * from "./CartForm/CartForm";
 export * from "./CartList/CartList";
 export * from "./CartList/CartItem";
+export * from "./CartButton/CartButton";

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { AuthModal, Modal } from "../../components";
-import { useAppSelector, useModal } from "../../hooks";
-import { selectCart, selectIsLoggedIn } from "../../redux";
+
+import { CartButton } from "../../components";
 
 interface IMedicineItem {
   product: {
@@ -15,18 +14,6 @@ interface IMedicineItem {
 export const MedicineItem: React.FC<IMedicineItem> = ({
   product: { _id, photo, name, suppliers, price },
 }) => {
-  const [isOpenModal, toggleModal] = useModal();
-  const isLoggedin = useAppSelector(selectIsLoggedIn);
-  const cart = useAppSelector(selectCart);
-
-  const handleAddToCart = () => {
-    if (!isLoggedin) {
-      toggleModal();
-    } else {
-      console.log(cart);
-    }
-  };
-
   return (
     <li>
       <img
@@ -50,26 +37,10 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
           {suppliers}
         </p>
         <div className="flex items-center justify-between">
-          <button
-            type="button"
-            onClick={handleAddToCart}
-            className="w-[108px] font-medium text-[14px] text-white leading-[1] text-center px-[16px] py-[10px] rounded-[24px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] hover:shadow-lg focus:shadow-lg transition duration-300"
-          >
-            Add to cart
-          </button>
-
-          {isOpenModal && (
-            <Modal
-              isOpen={isOpenModal}
-              toggleModal={toggleModal}
-              className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
-            >
-              <AuthModal />
-            </Modal>
-          )}
+          <CartButton _id={_id} />
           <Link
             to={`/product/${_id}/description`}
-            className="decoration-skip-none font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline hover:scale-125 focus:scale-125 hover:text-[#59b17a] focus:text-[#59b17a] transition-transform duration-300"
+            className="decoration-skip-none font-normal text-[12px] leading-[1.5] text-[#1d1e21] underline hover:scale-125 focus-visible:scale-125 hover:text-[#59b17a] focus-visible:text-[#59b17a] transition-transform duration-300"
           >
             Details
           </Link>

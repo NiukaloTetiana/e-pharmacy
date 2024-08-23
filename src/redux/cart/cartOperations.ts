@@ -1,5 +1,5 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import type { ICart, ICartProduct, INewOrder, IOrder } from "../../types";
 import { instance } from "../../services";
@@ -22,11 +22,11 @@ export const getCart = createAsyncThunk<
 
 export const updateCart = createAsyncThunk<
   ICart,
-  ICartProduct[],
+  { products: ICartProduct[] },
   { rejectValue: string }
->("cart/updateCart", async (_, { rejectWithValue }) => {
+>("cart/updateCart", async (updatedCart, { rejectWithValue }) => {
   try {
-    const { data } = await instance.put("/cart/update");
+    const { data } = await instance.put("/cart/update", updatedCart);
 
     return data;
   } catch (error) {
@@ -40,9 +40,9 @@ export const addOrder = createAsyncThunk<
   IOrder,
   INewOrder,
   { rejectValue: string }
->("cart/addOrder", async (_, { rejectWithValue }) => {
+>("cart/addOrder", async (order, { rejectWithValue }) => {
   try {
-    const { data } = await instance.post("/cart/checkout");
+    const { data } = await instance.post("/cart/checkout", order);
 
     return data;
   } catch (error) {
