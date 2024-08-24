@@ -1,17 +1,17 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 
-import type { ICart, IOrder } from "../../types";
+import type { ICartProduct, IOrder } from "../../types";
 import { addOrder, getCart, updateCart } from "./cartOperations";
 import { logoutUser } from "../auth/authOperations";
 
 export interface ICartSlice {
-  cart: ICart | null;
+  products: ICartProduct[];
   order: IOrder | null;
   isLoading: boolean;
 }
 
 const initialState: ICartSlice = {
-  cart: null,
+  products: [],
   order: null,
   isLoading: false,
 };
@@ -19,15 +19,34 @@ const initialState: ICartSlice = {
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    increaseQuantity: (state, action) => {
+      const productIndex = state.products.findIndex(
+        (product) => product._id === action.payload
+      );
+
+      if (productIndex > -1) {
+        state.products[productIndex].quantity += 1;
+      }
+    },
+    decreaseQuantity: (state, action) => {
+      const productIndex = state.products.findIndex(
+        (product) => product._id === action.payload
+      );
+
+      if (productIndex > -1) {
+        state.products[productIndex].quantity -= 1;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCart.fulfilled, (state, action) => {
-        state.cart = action.payload;
+        state.products = action.payload.products;
         state.isLoading = false;
       })
       .addCase(updateCart.fulfilled, (state, action) => {
-        state.cart = action.payload;
+        state.products = action.payload.products;
         state.isLoading = false;
       })
       .addCase(addOrder.fulfilled, (state, action) => {
@@ -51,12 +70,13 @@ const cartSlice = createSlice({
       );
   },
   selectors: {
-    selectCart: (state) => state.cart,
+    selectProductsCart: (state) => state.products,
     selectOrder: (state) => state.order,
     selectIsLoadingCart: (state) => state.isLoading,
   },
 });
 
 export const cartReducer = cartSlice.reducer;
-export const { selectCart, selectOrder, selectIsLoadingCart } =
+export const { selectProductsCart, selectOrder, selectIsLoadingCart } =
   cartSlice.selectors;
+export const { increaseQuantity, decreaseQuantity } = cartSlice.actions;
