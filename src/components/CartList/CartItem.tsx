@@ -1,25 +1,42 @@
-import { Icon } from "../Icon/Icon";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import { selectProductsCart, updateCart } from "../../redux";
+import { QuantityButton } from "../../components";
 
 interface ICartItemProps {
+  _id: string;
   photo: string;
   name: string;
   price: string;
   description: {
-    text: string;
-    antioxidantProperties: string;
-    antiDiabeticEffects: string;
-    antiCancerProperties: string;
     immuneSupport: string;
-    digestiveAid: string;
   };
 }
 
 export const CartItem: React.FC<ICartItemProps> = ({
+  _id,
   photo,
   name,
   price,
   description,
 }) => {
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(selectProductsCart);
+
+  const handleRemoveFromCart = () => {
+    const updatedProducts =
+      products
+        .map((product) => ({
+          _id: product._id,
+          quantity: product.quantity,
+        }))
+        .filter((product) => product._id !== _id) || [];
+    const updatedCart = {
+      products: updatedProducts,
+    };
+
+    dispatch(updateCart(updatedCart));
+  };
+
   return (
     <li className="lg:w-[460px] py-5 flex gap-[12px] sm-max:items-center md:gap-5 border-b border-[#1d1e2119] last:border-0">
       <img
@@ -43,25 +60,11 @@ export const CartItem: React.FC<ICartItemProps> = ({
           </p>
         </div>
         <div className="flex sm-max:flex-col sm-max:gap-1 gap-0 sm-max:items-start items-center md:items-end justify-between sm-max:mt-[5px] mt-auto">
+          <QuantityButton _id={_id} />
           <button
+            onClick={handleRemoveFromCart}
             type="button"
-            className="flex items-center justify-center gap-[12px] w-[95px] h-[32px] md:w-[108px] md:h-[44px] font-normal text-[14px] md:text-[16px] text-[#1d1e21] leading-[1.43] md:leading-[1.25] px-[14px] py-[6px] md:px-[16px] md:py-[12px] rounded-[60px] border border-[#1d1e2119] bg-transparent hover:border-[#59b17a] focus:border-[#59b17a] hover:shadow-lg focus:shadow-lg transition duration-300"
-          >
-            <Icon
-              id="plus"
-              size={18}
-              className="md:size-[20px] fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
-            />
-            1
-            <Icon
-              id="minus"
-              size={18}
-              className="md:size-[20px] fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
-            />
-          </button>
-          <button
-            type="button"
-            className="w-[89px] sm-max:w-[95px] h-[32px] md:h-[33px] font-medium text-[14px] text-[#e85050] leading-[1] tracking-[-0.05em] text-center px-[12px] py-[8px] rounded-[40px] bg-[#e8505019] hover:shadow-lg focus:shadow-lg transition duration-300"
+            className="w-[89px] sm-max:w-[95px] h-[32px] md:h-[33px] font-medium text-[14px] text-[#e85050] leading-[1] tracking-[-0.05em] text-center px-[12px] py-[8px] rounded-[40px] bg-[#e8505019] hover:bg-[#e85050] focus-visible:bg-[#e85050] hover:text-white focus-visible:text-white hover:shadow-lg focus-visible:shadow-lg transition duration-300"
           >
             Remove
           </button>

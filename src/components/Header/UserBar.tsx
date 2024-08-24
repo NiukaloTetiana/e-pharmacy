@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import { Icon, LogoutButton } from "../../components";
 import { useAppSelector } from "../../hooks";
-import { selectCart, selectUser } from "../../redux";
+import { selectProductsCart, selectUser } from "../../redux";
 
 interface IUserBarProps {
   className?: string;
@@ -11,10 +11,10 @@ interface IUserBarProps {
 
 export const UserBar = ({ className, toggleMenu }: IUserBarProps) => {
   const { name } = useAppSelector(selectUser);
-  const cart = useAppSelector(selectCart);
+  const products = useAppSelector(selectProductsCart);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const quantityProducts = cart?.products?.length ? cart.products.length : 0;
+  const quantityProducts = products.length;
 
   return (
     <div className={`${className} flex justify-center items-center gap-[12px]`}>

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import { AuthModal, Icon, Modal } from "../../components";
 import { useAppDispatch, useAppSelector, useModal } from "../../hooks";
-import { selectCart, selectIsLoggedIn, updateCart } from "../../redux";
+import { selectIsLoggedIn, selectProductsCart, updateCart } from "../../redux";
 
 interface ICartButton {
   _id: string;
@@ -14,17 +14,17 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
   const [isProductInCart, setIsProductInCart] = useState(false);
   const [isOpenModal, toggleModal] = useModal();
   const isLoggedin = useAppSelector(selectIsLoggedIn);
-  const cart = useAppSelector(selectCart);
+  const products = useAppSelector(selectProductsCart);
   const location = useLocation();
   const isMedicinePage = location.pathname === "/medicine";
 
   useEffect(() => {
-    if (cart?.products.length) {
-      setIsProductInCart(cart?.products.some((product) => product._id === _id));
+    if (products.length) {
+      setIsProductInCart(products.some((product) => product._id === _id));
     } else {
       setIsProductInCart(false);
     }
-  }, [_id, cart?.products]);
+  }, [_id, products]);
 
   const handleAddToCart = () => {
     if (!isLoggedin) {
@@ -32,8 +32,8 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
       return;
     }
 
-    const updatedProducts = cart?.products?.length
-      ? cart.products.map((product) => ({
+    const updatedProducts = products?.length
+      ? products.map((product) => ({
           _id: product._id,
           quantity: product.quantity,
         }))
@@ -50,7 +50,7 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
 
   const handleRemoveFromCart = () => {
     const updatedProducts =
-      cart?.products
+      products
         .map((product) => ({
           _id: product._id,
           quantity: product.quantity,
@@ -67,7 +67,11 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
       <button
         type="button"
         onClick={isProductInCart ? handleRemoveFromCart : handleAddToCart}
-        className={`flex items-center justify-center gap-[6px] font-medium text-[14px] text-white leading-[1] text-center bg-[#59b17a] hover:bg-[#3f945f] focus-visible:bg-[#3f945f] hover:shadow-lg focus-visible:shadow-lg transition duration-300 ${
+        className={`flex items-center justify-center gap-[6px] font-medium text-[14px] leading-[1] text-center hover:shadow-lg focus-visible:shadow-lg transition duration-300 ${
+          isProductInCart
+            ? "text-[#e85050] bg-[#e8505019] hover:bg-[#e85050] focus-visible:bg-[#e85050] hover:text-white focus-visible:text-white"
+            : "text-white bg-[#59b17a] hover:bg-[#3f945f] focus-visible:bg-[#3f945f]"
+        } ${
           isMedicinePage
             ? "w-[108px] h-[34px] px-[16px] py-[10px] rounded-[24px]"
             : "w-[140px] h-[44px] sm-max:w-[108px] px-[32px] sm-max:px-[15px] py-[13px] rounded-[60px]"
@@ -76,7 +80,7 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
         {isProductInCart ? (
           <>
             Remove
-            <Icon id="cart" size={14} className="fill-none stroke-white" />
+            <Icon id="cart" size={14} className="fill-none stroke-current" />
           </>
         ) : (
           "Add to cart"

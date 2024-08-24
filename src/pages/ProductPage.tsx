@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from "react";
 import { NavLink, Outlet, useParams } from "react-router-dom";
 
-import { CartButton, Icon } from "../components";
+import { CartButton, QuantityButton } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import { getOneProduct, selectOneProduct } from "../redux";
 
@@ -34,7 +34,7 @@ const ProductPage = () => {
                 {currentProduct.name}
               </h5>
               <h5 className="md:absolute md:top-[82px] md:left-0 lg:static font-semibold text-[16px] md:text-[20px] leading-[1.4] text-[#1d1e21]">
-                ৳{currentProduct.price}
+                ৳&nbsp;{currentProduct.price}
               </h5>
             </div>
             <p className="font-normal text-[12px] leading-[1.5] text-[#1d1e2199] mb-[32px] md:mb-[126px] lg:mb-10">
@@ -42,22 +42,7 @@ const ProductPage = () => {
             </p>
 
             <div className="flex items-center justify-between md:gap-[12px] lg:gap-0">
-              <button
-                type="button"
-                className="flex items-center justify-center gap-[12px] w-[108px] font-normal text-[16px] text-[#1d1e21] leading-[1.25] px-[18px] py-[12px] rounded-[60px] border border-[#1d1e2119] bg-transparent hover:border-[#59b17a] focus:border-[#59b17a] hover:shadow-lg focus:shadow-lg transition duration-300"
-              >
-                <Icon
-                  id="plus"
-                  size={20}
-                  className="fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
-                />
-                1
-                <Icon
-                  id="minus"
-                  size={20}
-                  className="fill-none stroke-[#59b17a] hover:text-[#59b17a] focus:text-[#59b17a]"
-                />
-              </button>
+              <QuantityButton _id={id || ""} />
 
               <CartButton _id={id || ""} />
             </div>

@@ -30,3 +30,4 @@ export * from "./CartForm/CartForm";
 export * from "./CartList/CartList";
 export * from "./CartList/CartItem";
 export * from "./CartButton/CartButton";
+export * from "./QuantityButton/QuantityButton";
