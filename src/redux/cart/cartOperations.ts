@@ -1,7 +1,12 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import type { ICart, ICartProduct, INewOrder, IOrder } from "../../types";
+import type {
+  ICart,
+  ICartProductRequest,
+  INewOrder,
+  IOrder,
+} from "../../types";
 import { instance } from "../../services";
 
 export const getCart = createAsyncThunk<
@@ -22,7 +27,7 @@ export const getCart = createAsyncThunk<
 
 export const updateCart = createAsyncThunk<
   ICart,
-  { products: ICartProduct[] },
+  { products: ICartProductRequest[] },
   { rejectValue: string }
 >("cart/updateCart", async (updatedCart, { rejectWithValue }) => {
   try {

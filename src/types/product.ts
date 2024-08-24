@@ -1,3 +1,5 @@
+import { ICartProduct } from "./cart";
+
 export interface IDescription {
   text: string;
   antioxidantProperties: string;
@@ -14,14 +16,4 @@ export interface IReviewProduct {
   review: string;
 }
 
-export interface IProduct {
-  _id: string;
-  photo: string;
-  name: string;
-  suppliers: string;
-  stock: string;
-  price: string;
-  category: string;
-  description: IDescription;
-  reviews: IReviewProduct[];
-}
+export interface IProduct extends Omit<ICartProduct, "quantity"> {}

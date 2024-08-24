@@ -1,7 +1,20 @@
+import { IDescription, IReviewProduct } from "./product";
+
 export interface ICartProduct {
   _id: string;
   quantity: number;
+  photo: string;
+  name: string;
+  price: string;
+  category: string;
+  stock: string;
+  suppliers: string;
+  description: IDescription;
+  reviews: IReviewProduct[];
 }
+
+export interface ICartProductRequest
+  extends Pick<ICartProduct, "_id" | "quantity"> {}
 
 export interface ICart {
   _id: string;
