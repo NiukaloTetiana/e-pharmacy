@@ -16,22 +16,38 @@ import { storesReducer } from "./stores/storesSlice";
 import { authReducer, AuthState } from "./auth/authSlice";
 import { reviewsReducer } from "./reviews/reviewsSlice";
 import { productsReducer } from "./products/productsSlice";
-import { cartReducer } from "./cart/cartSlice";
+import { cartReducer, CartState } from "./cart/cartSlice";
 
-const persistConfig = {
+const authPersistConfig = {
   key: "auth",
   version: 1,
   storage,
   whitelist: ["refreshToken"],
 };
 
+const cartPersistConfig = {
+  key: "cart",
+  version: 1,
+  storage,
+  whitelist: ["products"],
+};
+
+const persistedAuthReducer = persistReducer<AuthState>(
+  authPersistConfig,
+  authReducer
+);
+const persistedCartReducer = persistReducer<CartState>(
+  cartPersistConfig,
+  cartReducer
+);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer<AuthState>(persistConfig, authReducer),
+    auth: persistedAuthReducer,
+    cart: persistedCartReducer,
     stores: storesReducer,
     reviews: reviewsReducer,
     products: productsReducer,
-    cart: cartReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

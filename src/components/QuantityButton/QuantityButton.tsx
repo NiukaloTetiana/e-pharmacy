@@ -39,7 +39,9 @@ export const QuantityButton: React.FC<IQuantityButtonProps> = ({ _id }) => {
           className="md:size-[20px] fill-none stroke-[#59b17a] hover:text-[#59b17a] focus-visible:text-[#59b17a]"
         />
       </button>
-      {quantity === 0 ? "0" : quantity}
+      <span className="shrink-0 w-[13px] md:w-[16px] text-center ">
+        {quantity === 0 ? "0" : quantity}
+      </span>
       <button onClick={handleIncreaseQuantity} type="button">
         <Icon
           id="plus"

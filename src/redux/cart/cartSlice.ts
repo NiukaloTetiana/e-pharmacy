@@ -80,3 +80,4 @@ export const cartReducer = cartSlice.reducer;
 export const { selectProductsCart, selectOrder, selectIsLoadingCart } =
   cartSlice.selectors;
 export const { increaseQuantity, decreaseQuantity } = cartSlice.actions;
+export type CartState = ReturnType<typeof cartReducer>;

@@ -60,8 +60,9 @@ export const AuthForm = ({
       } else {
         await dispatch(loginUser({ email, password })).unwrap();
         toast.success(`Welcome back!`);
+
+        await dispatch(getCart()).unwrap();
       }
-      await dispatch(getCart()).unwrap();
       reset();
     } catch (error) {
       toast.error(error as string);

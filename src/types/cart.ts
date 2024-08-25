@@ -32,7 +32,7 @@ export interface ICustomer {
 export interface IOrder {
   _id: string;
   customer: ICustomer;
-  products: ICartProduct[];
+  products: ICartProductRequest[];
   dateOfOrder: Date;
   totalPrice: number;
 }
