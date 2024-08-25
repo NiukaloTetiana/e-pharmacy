@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { AuthForm } from "../AuthForm/AuthForm";
 
-export const AuthModal = () => {
+interface IAuthModalProps {
+  toggleModal: () => void;
+}
+
+export const AuthModal: React.FC<IAuthModalProps> = ({ toggleModal }) => {
   const [registration, setRegistration] = useState(true);
 
   const toggleRegistration = () => {
@@ -19,6 +23,7 @@ export const AuthModal = () => {
           : "Please login to your account before continuing."}
       </p>
       <AuthForm
+        toggleModal={toggleModal}
         registration={registration}
         toggleRegistration={toggleRegistration}
       />

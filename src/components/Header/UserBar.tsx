@@ -14,7 +14,7 @@ export const UserBar = ({ className, toggleMenu }: IUserBarProps) => {
   const products = useAppSelector(selectProductsCart);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const quantityProducts = products.length;
+  const quantityProducts = products?.length;
 
   return (
     <div className={`${className} flex justify-center items-center gap-[12px]`}>

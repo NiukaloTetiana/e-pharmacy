@@ -93,7 +93,7 @@ export const CartButton: React.FC<ICartButton> = ({ _id }) => {
           toggleModal={toggleModal}
           className="px-[32px] py-[40px] sm-max:px-[20px] md:px-[70px] md:py-[50px]"
         >
-          <AuthModal />
+          <AuthModal toggleModal={toggleModal} />
         </Modal>
       )}
     </>

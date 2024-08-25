@@ -12,14 +12,13 @@ export const LogOut = ({ toggleLogOutModal }: ILogOutProps) => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectIsLoadingAuth);
 
-  const handleLogout = () => {
-    dispatch(logoutUser())
-      .then(() => {
-        toast.info("If you want to continue shopping, you must log in.");
-      })
-      .catch(() => {
-        toast.error("Oops... Something went wrong.");
-      });
+  const handleLogout = async () => {
+    try {
+      await dispatch(logoutUser()).unwrap();
+      toast.info("If you want to continue shopping, you must log in.");
+    } catch (error) {
+      toast.error("Oops... Something went wrong.");
+    }
   };
 
   return (

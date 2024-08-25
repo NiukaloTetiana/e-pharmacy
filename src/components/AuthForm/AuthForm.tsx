@@ -25,11 +25,13 @@ interface IFormData {
 interface IAuthFormProps {
   registration?: boolean;
   toggleRegistration?: () => void;
+  toggleModal?: () => void;
 }
 
 export const AuthForm = ({
   registration,
   toggleRegistration,
+  toggleModal,
 }: IAuthFormProps) => {
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
@@ -63,6 +65,7 @@ export const AuthForm = ({
 
         await dispatch(getCart()).unwrap();
       }
+      toggleModal && toggleModal();
       reset();
     } catch (error) {
       toast.error(error as string);
