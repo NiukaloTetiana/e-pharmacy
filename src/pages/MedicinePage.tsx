@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Filter, Icon, MedicineList, Sort } from "../components";
+import { Filter, Icon, MedicineList, Pagination, Sort } from "../components";
 import { useAppDispatch } from "../hooks";
 import { getProducts } from "../redux";
 
@@ -41,6 +41,7 @@ const MedicinePage = () => {
       </div>
 
       <MedicineList />
+      <Pagination />
     </div>
   );
 };

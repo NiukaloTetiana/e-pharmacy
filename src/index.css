@@ -252,3 +252,21 @@ input {
 .real-radio:checked + .custom-radio + span {
   @apply text-[#1d1e21];
 }
+
+.page-link {
+  @apply flex justify-center items-center w-[35px] h-[35px] sm-max:w-[30px] sm-max:h-[30px] bg-transparent rounded-[50%] border border-[#1d1e2133] font-bold leading-[1.29] text-[14px] text-[#1d1e21] transition duration-300;
+}
+
+.page-item.disabled .page-link,
+.page-link:disabled {
+  @apply fill-[#1d1e217f] text-[#1d1e217f] bg-transparent border border-[#1D1E21] border-opacity-[5%];
+}
+
+.active-pg {
+  @apply bg-[#59b17a] border-transparent text-white;
+}
+
+.group:hover .page-link,
+.group:focus-visible .page-link {
+  @apply bg-[#59b17a] border-transparent text-white;
+}
