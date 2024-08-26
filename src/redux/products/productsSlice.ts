@@ -22,7 +22,11 @@ const initialState: IProductsSlice = {
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.fulfilled, (state, action) => {
@@ -51,9 +55,18 @@ const productsSlice = createSlice({
     selectProducts: (state) => state.products,
     selectOneProduct: (state) => state.oneProduct,
     selectIsLoadingProducts: (state) => state.isLoading,
+    selectPage: (state) => state.page,
+    selectTotalProducts: (state) => state.total,
   },
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { selectProducts, selectOneProduct, selectIsLoadingProducts } =
-  productsSlice.selectors;
+export const {
+  selectProducts,
+  selectOneProduct,
+  selectIsLoadingProducts,
+  selectTotalProducts,
+  selectPage,
+} = productsSlice.selectors;
+
+export const { setPage } = productsSlice.actions;

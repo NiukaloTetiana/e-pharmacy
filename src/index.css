@@ -254,7 +254,7 @@ input {
 }
 
 .page-link {
-  @apply flex justify-center items-center w-[35px] h-[35px] sm-max:w-[30px] sm-max:h-[30px] bg-transparent rounded-[50%] border border-[#1d1e2133] font-bold leading-[1.29] text-[14px] text-[#1d1e21] transition duration-300;
+  @apply flex justify-center items-center w-[35px] h-[35px] sm-max:w-[30px] sm-max:h-[30px] md:w-[44px] md:h-[44px] bg-transparent rounded-[50%] border border-[#1d1e2133] font-bold leading-[1.29] text-[14px] md:text-[18px] text-[#1d1e21] transition duration-300;
 }
 
 .page-item.disabled .page-link,

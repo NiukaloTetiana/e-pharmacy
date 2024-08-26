@@ -15,7 +15,7 @@ export const MedicineItem: React.FC<IMedicineItem> = ({
   product: { _id, photo, name, suppliers, price },
 }) => {
   return (
-    <li>
+    <li className="w-full md:w-[226px] lg:w-[280px]">
       <img
         src={photo}
         className="flex items-center justify-center w-full h-[300px] md:w-[226px] md:h-[260px] lg:w-[280px] lg:h-[280px] bg-[#f7f7f7] rounded-[20px] border-[1.15px] border-[#59b17a99] mb-[8px]"

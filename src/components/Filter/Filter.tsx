@@ -1,13 +1,15 @@
 import { Icon } from "../Icon/Icon";
 
-export const Filter = ({
-  onChange,
-}: {
+interface IFilterProps {
+  filter: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}) => {
+}
+
+export const Filter: React.FC<IFilterProps> = ({ onChange, filter }) => {
   return (
     <div className="relative flex items-center">
       <input
+        value={filter}
         name="filter"
         placeholder="Search medicine"
         type="text"
