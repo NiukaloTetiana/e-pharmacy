@@ -4,6 +4,12 @@
 
 ### Pages
 
+**1. Authentication Pages: RegisterPage & LoginPage**
+
+These pages handle user authentication within the application, providing interfaces for user registration and login.
+
+![RegisterPage & LoginPage](./public/1.jpg)
+
 **1. Home**
 
 The HomePage includes the following sections:
@@ -20,7 +26,7 @@ Reviews Section: Showcases customer reviews, each including a user photo, name, 
 <!--
 - Welcomes users with a site title, company slogan, and a call-to-action button redirecting to the "Events" page. -->
 
-![Home Page](./public/1.png)
+![Home Page](./public/2.png)
 
 **2. Medicine store page**
 
@@ -56,9 +62,13 @@ Reviews Section: Showcases customer reviews, each including a user photo, name, 
 
 **4. Cart page**
 
-<!--
-- Private page accessible to authenticated users.
-- Displays a schedule of all events the user has registered for. -->
+- Private page accessible to authenticated users to view and manage selected products.
+- Users can enter shipping information including name, email, phone number, and address, choose a payment method include "Cash On Delivery" and "Bank".
+- The total order amount is displayed, with a "Place order" button to finalize the purchase.
+- In products list displays the product name, unit price, quantity with an option to edit, and a "Remove" button to delete the item.
+- If the cart is empty, users are prompted to visit the Medicine page to add products.
+
+![Cart page](./public/6.jpg)
 
 ## Features
 
