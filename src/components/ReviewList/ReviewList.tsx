@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { toast } from "react-toastify";
+
 import { Icon } from "../../components";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { getReviews, selectReviews } from "../../redux";
@@ -8,7 +10,14 @@ export const ReviewList = () => {
   const reviews = useAppSelector(selectReviews);
 
   useEffect(() => {
-    dispatch(getReviews());
+    const fetchReviews = async () => {
+      try {
+        await dispatch(getReviews()).unwrap();
+      } catch (error) {
+        toast.error(error as string);
+      }
+    };
+    fetchReviews();
   }, [dispatch]);
 
   return (

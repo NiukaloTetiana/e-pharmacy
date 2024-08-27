@@ -1,5 +1,6 @@
 // import MarqueeSlider from "react-marquee-slider";
 import Marquee from "react-fast-marquee";
+
 import { Icon } from "../../components";
 import { runningItems } from "../../constants";
 

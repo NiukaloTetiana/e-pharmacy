@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { selectProductsCart, updateCart } from "../../redux";
 import { QuantityButton } from "../../components";
+import { toast } from "react-toastify";
 
 interface ICartItemProps {
   _id: string;
@@ -22,7 +23,7 @@ export const CartItem: React.FC<ICartItemProps> = ({
   const dispatch = useAppDispatch();
   const products = useAppSelector(selectProductsCart);
 
-  const handleRemoveFromCart = () => {
+  const handleRemoveFromCart = async () => {
     const updatedProducts =
       products
         .map((product) => ({
@@ -33,8 +34,11 @@ export const CartItem: React.FC<ICartItemProps> = ({
     const updatedCart = {
       products: updatedProducts,
     };
-
-    dispatch(updateCart(updatedCart));
+    try {
+      await dispatch(updateCart(updatedCart)).unwrap();
+    } catch (error) {
+      toast.error(error as string);
+    }
   };
 
   return (

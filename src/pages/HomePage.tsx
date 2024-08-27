@@ -14,10 +14,13 @@ import {
   selectIsLoadingReviews,
   selectIsLoadingStores,
 } from "../redux";
-import pharmacy_mobile_1x from "../assets/images/pharmacy/pharmacy_mobile_1x.webp";
-import pharmacy_mobile_2x from "../assets/images/pharmacy/pharmacy_mobile_2x.webp";
-import pharmacy_tablet_1x from "../assets/images/pharmacy/pharmacy_tablet_1x.webp";
-import pharmacy_tablet_2x from "../assets/images/pharmacy/pharmacy_tablet_2x.webp";
+
+import {
+  pharmacy_mobile_1x,
+  pharmacy_mobile_2x,
+  pharmacy_tablet_1x,
+  pharmacy_tablet_2x,
+} from "../assets";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();

@@ -9,10 +9,13 @@ import {
 } from "../../components";
 import { useAppSelector, useModal } from "../../hooks";
 
-import green_mobile_1x from "../../assets/images/logo/logo_green_mobile_1x.webp";
-import green_mobile_2x from "../../assets/images/logo/logo_green_mobile_2x.webp";
-import green_tablet_1x from "../../assets/images/logo/logo_green_tablet_1x.webp";
-import green_tablet_2x from "../../assets/images/logo/logo_green_tablet_2x.webp";
+import {
+  green_mobile_1x,
+  green_mobile_2x,
+  green_tablet_1x,
+  green_tablet_2x,
+} from "../../assets";
+
 import { selectIsLoggedIn } from "../../redux";
 
 export const Header = () => {
