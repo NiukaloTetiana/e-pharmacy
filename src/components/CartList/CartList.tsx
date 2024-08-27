@@ -6,7 +6,7 @@ export const CartList = () => {
   const products = useAppSelector(selectProductsCart);
 
   return (
-    <ul className="lg:mt-5">
+    <ul className="max-h-[100vh] w-full lg:w-[460px] scrollbar lg:mt-5">
       {products.map((product) => (
         <CartItem key={product._id} {...product} />
       ))}

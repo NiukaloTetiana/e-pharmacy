@@ -270,3 +270,35 @@ input {
 .group:focus-visible .page-link {
   @apply bg-[#59b17a] border-transparent text-white;
 }
+
+.scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-color: auto !important;
+  --sb-track-color: #3f946032;
+  --sb-thumb-color: #59b17a;
+  --sb-size: 4px;
+  --sb-margin: 20px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 12px;
+  margin-top: var(--sb-margin);
+  margin-bottom: var(--sb-margin);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 12px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .scrollbar {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}

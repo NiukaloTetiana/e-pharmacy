@@ -13,7 +13,7 @@ const CartPage = () => {
       {products.length > 0 ? (
         <div className="flex flex-col gap-[60px] md:gap-[44px] lg:flex-row lg:gap-[96px]">
           <div>
-            <div className="p-5 pb-10 md:px-[78px] md:py-10 lg:p-10 bg-white rounded-[20px] lg:w-full">
+            <div className="p-5 pb-10 md:px-[78px] md:py-10 lg:p-10 bg-white rounded-[20px] lg:w-[628px]">
               <h4 className="font-semibold text-[16px] md:text-[20px] leading-[1.4] text-[#1d1e21] mb-[12px] md:mb-[14px]">
                 Enter shipping info
               </h4>

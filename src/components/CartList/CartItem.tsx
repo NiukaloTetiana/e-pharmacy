@@ -42,7 +42,7 @@ export const CartItem: React.FC<ICartItemProps> = ({
   };
 
   return (
-    <li className="lg:w-[460px] py-5 flex gap-[12px] sm-max:items-center md:gap-5 border-b border-[#1d1e2119] last:border-0">
+    <li className="lg:w-[460px] py-5 pr-[8px] flex gap-[12px] sm-max:items-center md:gap-5 border-b border-[#1d1e2119] last:border-0">
       <img
         src={photo}
         alt={name}
