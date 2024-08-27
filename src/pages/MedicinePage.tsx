@@ -1,37 +1,65 @@
-import { useEffect, useState } from "react";
-import { Filter, Icon, MedicineList, Pagination, Sort } from "../components";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { getProducts, selectPage, selectProducts, setPage } from "../redux";
+import { useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 
-export const LIMIT = 12;
+import {
+  Filter,
+  Icon,
+  Loader,
+  MedicineList,
+  Pagination,
+  Sort,
+} from "../components";
+import { useAppDispatch, useAppSelector, useLimit } from "../hooks";
+import {
+  getProducts,
+  selectIsLoadingProducts,
+  selectPage,
+  selectProducts,
+  setPage,
+} from "../redux";
 
 const MedicinePage = () => {
-  const products = useAppSelector(selectProducts);
   const page = useAppSelector(selectPage);
-  const pageNumber = page - 1;
+  const isLoading = useAppSelector(selectIsLoadingProducts);
+  const products = useAppSelector(selectProducts);
   const dispatch = useAppDispatch();
   const [sortLabel, setSortLabel] = useState<string>("Product category");
   const [filter, setFilter] = useState<string>("");
+  const LIMIT = useLimit();
   const category =
     sortLabel === "Product category" || sortLabel === "Show all"
       ? ""
       : sortLabel;
 
+  const debouncedDispatch = useRef(
+    debounce((params) => {
+      dispatch(getProducts(params));
+    }, 400)
+  ).current;
+
   useEffect(() => {
-    const params = { page, limit: LIMIT, name: filter, category };
-    dispatch(getProducts(params));
-  }, [category, dispatch, filter, page]);
+    dispatch(setPage(1));
+  }, [dispatch, filter]);
+
+  useEffect(() => {
+    const params = {
+      page,
+      limit: LIMIT,
+      ...(filter && { name: filter }),
+      ...(category && { category }),
+    };
+    debouncedDispatch(params);
+  }, [page, filter, category, dispatch, debouncedDispatch, LIMIT]);
+
+  const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setFilter(value);
+  };
 
   const handleSortChange = (value: string) => {
     setSortLabel(value);
     dispatch(setPage(1));
   };
-
-  const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFilter(event.target.value);
-    dispatch(setPage(1));
-  };
-
   const handleResetClick = () => {
     setSortLabel("Product category");
     setFilter("");
@@ -39,35 +67,38 @@ const MedicinePage = () => {
   };
 
   return (
-    <div className="container pt-[39px] md:pt-[55px] lg:pt-[75px] pb-[80px] md:pb-[120px]">
-      <h2 className="title">Medicine</h2>
-      {products.length > 0 ? (
-        <>
-          <div className="flex flex-col md:flex-row gap-[12px] md:gap-[8px] mb-[12px] md:mb-[32px] lg:mb-[40px]">
-            <div className="flex flex-col md:flex-row gap-[12px] md:gap-[14px]">
-              <Sort sortLabel={sortLabel} onSortChange={handleSortChange} />
-              <Filter onChange={handleChangeFilter} filter={filter} />
-            </div>
-
-            <button
-              onClick={handleResetClick}
-              type="button"
-              className="flex items-center justify-center gap-[8px] w-[116px] px-[30px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] font-medium text-[14px] text-white leading-[1.29] hover:shadow-lg focus:shadow-lg transition duration-300"
-            >
-              <Icon id="reset" size={14} className="fill-white stroke-none" />
-              Reset
-            </button>
+    <>
+      <div className="container pt-[39px] md:pt-[55px] lg:pt-[75px] pb-[80px] md:pb-[120px]">
+        <h2 className="title">Medicine</h2>
+        <div className="flex flex-col md:flex-row gap-[12px] md:gap-[8px] mb-[12px] md:mb-[32px] lg:mb-[40px]">
+          <div className="flex flex-col md:flex-row gap-[12px] md:gap-[14px]">
+            <Sort sortLabel={sortLabel} onSortChange={handleSortChange} />
+            <Filter onChange={handleChangeFilter} filter={filter} />
           </div>
 
-          <MedicineList />
-          <Pagination page={pageNumber} />
-        </>
-      ) : (
-        <h3 className="font-semibold text-center text-[24px] md:text-[26px] leading-[1.14] text-[#59b17a]">
-          Nothing was found for your request.
-        </h3>
-      )}
-    </div>
+          <button
+            onClick={handleResetClick}
+            type="button"
+            className="flex items-center justify-center gap-[8px] w-[116px] px-[30px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] font-medium text-[14px] text-white leading-[1.29] hover:shadow-lg focus:shadow-lg transition duration-300"
+          >
+            <Icon id="reset" size={14} className="fill-white stroke-none" />
+            Reset
+          </button>
+        </div>
+
+        {products.length > 0 ? (
+          <>
+            <MedicineList />
+            <Pagination />
+          </>
+        ) : (
+          <h3 className="font-semibold text-center text-[24px] md:text-[26px] leading-[1.14] text-[#59b17a]">
+            Nothing was found for your request.
+          </h3>
+        )}
+      </div>
+      {isLoading && <Loader />}
+    </>
   );
 };
 

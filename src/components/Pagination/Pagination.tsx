@@ -2,17 +2,14 @@ import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
 import { Icon } from "../../components";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { selectTotalProducts, setPage } from "../../redux";
-import { LIMIT } from "../../pages/MedicinePage";
+import { useAppDispatch, useAppSelector, useLimit } from "../../hooks";
+import { selectPage, selectTotalProducts, setPage } from "../../redux";
 
-interface IPaginationProps {
-  page: number;
-}
-
-export const Pagination: React.FC<IPaginationProps> = ({ page }) => {
+export const Pagination: React.FC = () => {
+  const page = useAppSelector(selectPage) - 1;
   const total = useAppSelector(selectTotalProducts);
   const dispatch = useAppDispatch();
+  const LIMIT = useLimit();
   const totalPages = Math.ceil(total / LIMIT);
 
   useEffect(() => {
@@ -33,6 +30,8 @@ export const Pagination: React.FC<IPaginationProps> = ({ page }) => {
 
   if (!total) return;
 
+  const pagesDisplayed = LIMIT === 12 ? 3 : 1;
+
   return (
     <div className="flex gap-[17px] items-center justify-center">
       <button
@@ -49,7 +48,7 @@ export const Pagination: React.FC<IPaginationProps> = ({ page }) => {
 
       <ReactPaginate
         pageCount={totalPages}
-        pageRangeDisplayed={1}
+        pageRangeDisplayed={pagesDisplayed}
         marginPagesDisplayed={0}
         onPageChange={handlePageClick}
         forcePage={page}
