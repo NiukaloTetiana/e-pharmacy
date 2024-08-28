@@ -6,11 +6,21 @@
 
 **1. Authentication Pages: RegisterPage & LoginPage**
 
-These pages handle user authentication within the application, providing interfaces for user registration and login.
+**RegisterPage**
+
+- Includes a registration form with validation. Upon successful registration, users are automatically logged in and redirected to a private page.
+- A navigation link is provided for existing users to log in.
+
+**LoginPage**
+
+- Includes a login form with validation. Successful login redirects users to the main page.
+- A navigation link is provided for new users to register.
+
+This structure ensures a seamless user experience across both pages, with consistent branding and functionality.
 
 ![RegisterPage & LoginPage](./public/1.jpg)
 
-**1. Home**
+**2. Home**
 
 The HomePage includes the following sections:
 
@@ -28,21 +38,30 @@ Reviews Section: Showcases customer reviews, each including a user photo, name, 
 
 ![Home Page](./public/2.png)
 
-**2. Medicine store page**
+**3. Medicine store page**
 
-<!-- - Each event card includes essential details, a "Register" button for users to sign up for the event, and a "View" button to see who has registered for that event.
-- Detailed information about each event is available, including the event title, date, description, and organizer.
-- Supports sorting of events by date (newest/oldest), title (A-Z/Z-A), and organizer (A-Z/Z-A).
-- Implements infinite scrolling to load events dynamically as the user scrolls down the page. -->
+Features a list of pharmacies or stores where users can browse and select their preferred locations.
 
-![Events Page](./public/2.png)
+- Each store card displays key information, including the store name, address, contact number, and current status (open or closed).
+- Users can also see ratings for each store and click a "Visit Store" button to view more details.
 
-**3. Medicine page**
+![Medicine store page](./public/3.png)
 
-<!-- - Private page accessible to authenticated users.
-- Displays a schedule of all events the user has registered for. -->
+**4. Medicine page**
 
-![Schedule Page](./public/5.png)
+Provides an intuitive interface for users to search, filter, and browse available medications.
+
+- The search and filter panel includes a "Product category" filter for selecting specific medication categories, a search field for finding medications by name, and a reset button to clear all filters and display the full product list again.
+- Each card includes an image of the product, the medicine name and the price.
+- "Add to Cart" button allows users to add the product to their shopping cart. If the user is not logged in, a modal prompts registration or login; if logged in, the product is added to the cart.
+- A link "Details" redirects users to the Product page where they can view comprehensive information about the selected medication.
+- Pagination system located at the bottom of the page, enabling users to navigate between different pages of the product catalog.
+
+![Medicine page](./public/4.png)
+
+**5. Product page**
+
+![Registration](./public/3.png)
 
 **Description**:
 
@@ -60,7 +79,7 @@ Reviews Section: Showcases customer reviews, each including a user photo, name, 
 
 ![Participants](./public/4.png)
 
-**4. Cart page**
+**6. Cart page**
 
 - Private page accessible to authenticated users to view and manage selected products.
 - Users can enter shipping information including name, email, phone number, and address, choose a payment method include "Cash On Delivery" and "Bank".
@@ -76,8 +95,6 @@ Reviews Section: Showcases customer reviews, each including a user photo, name, 
 - **Adaptive Design**: Fluid layout for breakpoints at 320px, 375px, 768px, and 1440px. Ensures compatibility and usability across various devices.
 - **Modal Dialogs**: Enhanced interaction through modal dialogs for login, registration and logaut.
 - **Form Validation**: Implemented using React Hook Form and Yup for client-side validation.
-
-![Feature Registration and Login](./public/6.png)
 
 ## About the Project
 
