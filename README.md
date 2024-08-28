@@ -22,18 +22,29 @@ This structure ensures a seamless user experience across both pages, with consis
 
 **2. Home**
 
-The HomePage includes the following sections:
+The Home page is the entry point for users, providing an overview of the platform's offerings and directing them to key sections serves as the central hub for users, offering a comprehensive overview of the platform's key features and guiding users to explore further.
 
-Main Banner: Features a primary promo message, "Your medication delivered," with a subtext, "Say goodbye to all your healthcare worries with us."
-Promo Banners: Three promotional banners:
-Huge Sale: 70% discount with a "Shop now" button.
-Secure Delivery: 100% guarantee with a "Read more" button.
-Off: 35% discount with a "Shop now" button.
-Medicine Stores: Displays six nearby stores with details like name, address, phone number, and open/closed status. Clicking on a store redirects users to the Shop page for more information.
-Add Pharmacy Promo: Encourages pharmacies to join the platform, showcasing features like managing orders, creating profiles, and increasing sales.
-Reviews Section: Showcases customer reviews, each including a user photo, name, and testimonial, fetched from the backend API.
+_Main Banner:_ Introduces the platform with a promotional banner and a message about the convenience of medication delivery, also reassures users with the supportive text.
 
-![Home Page](./public/2.png)
+![Main Banner](./public/2-1.png)
+
+_Promo Banners:_ Three promotional banners:
+
+- Huge Sale: 70% discount with a "Shop now" button.
+- Secure Delivery: 100% guarantee with a "Read more" button.
+- Off: 35% discount with a "Shop now" button.
+
+_Nearest Medicine Store:_ Displays selection of nearby stores with details like name, address, phone number, and open/close status. Clicking on a store redirects users to the Shop page for more detailed information.
+
+![Nearest Medicine Store](./public/2-2.png)
+
+_Add Pharmacy Promo:_ Encourages local pharmacies to join the platform, highlighting the benefits of online prescription serviceslike managing orders, creating profiles, and increasing sales. A call-to-action button directs users to the Medicine store page for further exploration.
+
+![Add Pharmacy Promo](./public/2-3.png)
+
+_Reviews Section:_ Showcases customer reviews, each including a user photo, name, and testimonial, fetched dynamically from the backend to showcase recent experiences.
+
+![Reviews Section](./public/2-4.png)
 
 **3. Medicine store page**
 
@@ -62,9 +73,9 @@ Provides detailed information about individual products, including images, prici
 
 ![Product page](./public/5.png)
 
-**Description:** Provides a comprehensive overview of the product, including its medical uses and any warnings.
+_Description:_ Provides a comprehensive overview of the product, including its medical uses and any warnings.
 
-**Reviews:** Displays user reviews, including the reviewer's name, the date of the review, the review text, and a star rating.
+_Reviews:_ Displays user reviews, including the reviewer's name, the date of the review, the review text, and a star rating.
 
 ![Description & Reviews routes](./public/6.jpg)
 
