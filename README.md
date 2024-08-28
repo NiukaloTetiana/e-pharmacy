@@ -6,12 +6,12 @@
 
 **1. Authentication Pages: RegisterPage & LoginPage**
 
-**RegisterPage**
+**Register page**
 
 - Includes a registration form with validation. Upon successful registration, users are automatically logged in and redirected to a private page.
 - A navigation link is provided for existing users to log in.
 
-**LoginPage**
+**Login page**
 
 - Includes a login form with validation. Successful login redirects users to the main page.
 - A navigation link is provided for new users to register.
@@ -32,9 +32,6 @@ Off: 35% discount with a "Shop now" button.
 Medicine Stores: Displays six nearby stores with details like name, address, phone number, and open/closed status. Clicking on a store redirects users to the Shop page for more information.
 Add Pharmacy Promo: Encourages pharmacies to join the platform, showcasing features like managing orders, creating profiles, and increasing sales.
 Reviews Section: Showcases customer reviews, each including a user photo, name, and testimonial, fetched from the backend API.
-
-<!--
-- Welcomes users with a site title, company slogan, and a call-to-action button redirecting to the "Events" page. -->
 
 ![Home Page](./public/2.png)
 
@@ -61,33 +58,26 @@ Provides an intuitive interface for users to search, filter, and browse availabl
 
 **5. Product page**
 
-![Registration](./public/3.png)
+Provides detailed information about individual products, including images, pricing, and customer reviews. After adding the product to the cart, users can change the quantity. Contains two nested routes: "Description" and "Reviews" tabs.
 
-**Description**:
+![Product page](./public/5.png)
 
-<!--
-- Provides a user-friendly form for event registration.
-- Form validation ensures accurate and complete user input. -->
+**Description:** Provides a comprehensive overview of the product, including its medical uses and any warnings.
 
-![Registration](./public/3.png)
+**Reviews:** Displays user reviews, including the reviewer's name, the date of the review, the review text, and a star rating.
 
-**Reviews**:
-
-<!-- - Allows users to view a list of registered participants for each event.
-- Enables search by full name or email for easy navigation.
-- Presents bar charts showing registrations per last week, offering insights into event popularity trends. -->
-
-![Participants](./public/4.png)
+![Description & Reviews routes](./public/6.jpg)
 
 **6. Cart page**
 
-- Private page accessible to authenticated users to view and manage selected products.
+Private page accessible to authenticated users to view and manage selected products.
+
 - Users can enter shipping information including name, email, phone number, and address, choose a payment method include "Cash On Delivery" and "Bank".
 - The total order amount is displayed, with a "Place order" button to finalize the purchase.
 - In products list displays the product name, unit price, quantity with an option to edit, and a "Remove" button to delete the item.
 - If the cart is empty, users are prompted to visit the Medicine page to add products.
 
-![Cart page](./public/6.jpg)
+![Cart page](./public/7.jpg)
 
 ## Features
 
