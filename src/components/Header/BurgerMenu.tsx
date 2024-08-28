@@ -50,7 +50,7 @@ export const BurgerMenu = ({
           linkItemClasses={["link", " link", "link"]}
           linkClasses={[
             "px-[20px] link-btn",
-            "px-[12px] link-btn",
+            "px-[11px] link-btn",
             "px-[17px] link-btn",
           ]}
           toggleMenu={toggleMenu}

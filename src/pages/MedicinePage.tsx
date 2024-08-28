@@ -79,7 +79,7 @@ const MedicinePage = () => {
           <button
             onClick={handleResetClick}
             type="button"
-            className="flex items-center justify-center gap-[8px] w-[116px] px-[30px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] font-medium text-[14px] text-white leading-[1.29] hover:shadow-lg focus:shadow-lg transition duration-300"
+            className="flex items-center justify-center gap-[8px] md:w-[116px] px-[30px] py-[13px] rounded-[60px] bg-[#59b17a] hover:bg-[#3f945f] focus:bg-[#3f945f] font-medium text-[14px] text-white leading-[1.29] hover:shadow-lg focus:shadow-lg transition duration-300"
           >
             <Icon id="reset" size={14} className="fill-white stroke-none" />
             Reset
