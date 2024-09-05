@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { debounce } from "lodash";
 
 import {
@@ -26,6 +27,7 @@ const MedicinePage = () => {
   const [sortLabel, setSortLabel] = useState<string>("Product category");
   const [filter, setFilter] = useState<string>("");
   const LIMIT = useLimit();
+  const navigate = useNavigate();
   const category =
     sortLabel === "Product category" || sortLabel === "Show all"
       ? ""
@@ -42,11 +44,14 @@ const MedicinePage = () => {
   }, [dispatch, filter]);
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const stock = queryParams.get("stock") || "";
     const params = {
       page,
       limit: LIMIT,
       ...(filter && { name: filter }),
       ...(category && { category }),
+      ...(stock && { stock }),
     };
     debouncedDispatch(params);
   }, [page, filter, category, dispatch, debouncedDispatch, LIMIT]);
@@ -64,6 +69,7 @@ const MedicinePage = () => {
     setSortLabel("Product category");
     setFilter("");
     dispatch(setPage(1));
+    navigate("/medicine");
   };
 
   return (
@@ -92,7 +98,7 @@ const MedicinePage = () => {
             <Pagination />
           </>
         ) : (
-          <h3 className="font-semibold text-center text-[24px] md:text-[26px] leading-[1.14] text-[#59b17a]">
+          <h3 className="font-semibold text-center text-[24px] md:text-[26px] leading-[1.14] text-[#59b17a] mt-[25px] md:mt-[80px] lg:mt-[100px]">
             Nothing was found for your request.
           </h3>
         )}

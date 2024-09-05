@@ -6,24 +6,27 @@ import { instance } from "../../services";
 
 export const getProducts = createAsyncThunk<
   { products: IProduct[]; total: number },
-  { page: number; limit: number; name: string; category: string },
+  {
+    page: number;
+    limit: number;
+    name: string;
+    category: string;
+    stock: string;
+  },
   { rejectValue: string }
->(
-  "products/getProducts",
-  async ({ page, limit, name, category }, { rejectWithValue }) => {
-    try {
-      const { data } = await instance.get("/products", {
-        params: { page, limit, name, category },
-      });
+>("products/getProducts", async (params, { rejectWithValue }) => {
+  try {
+    const { data } = await instance.get("/products", {
+      params,
+    });
 
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return rejectWithValue(error.response?.data.message);
-      }
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return rejectWithValue(error.response?.data.message);
     }
   }
-);
+});
 
 export const getOneProduct = createAsyncThunk<
   IProduct,
