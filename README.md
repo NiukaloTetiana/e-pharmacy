@@ -34,6 +34,8 @@ _Promo Banners:_ Three promotional banners:
 - Secure Delivery: 100% guarantee with a "Read more" button.
 - Off: 35% discount with a "Shop now" button.
 
+![Stock Section](./public/2-1-1.png)
+
 _Nearest Medicine Store:_ Displays selection of nearby stores with details like name, address, phone number, and open/close status. Clicking on a store redirects users to the Shop page for more detailed information.
 
 ![Nearest Medicine Store](./public/2-2.png)
