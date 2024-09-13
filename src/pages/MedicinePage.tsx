@@ -95,7 +95,7 @@ const MedicinePage = () => {
         {products.length > 0 ? (
           <>
             <MedicineList />
-            {products.length > LIMIT ? <Pagination /> : null}
+            {products.length >= LIMIT ? <Pagination /> : null}
           </>
         ) : (
           <h3 className="font-semibold text-center text-[24px] md:text-[26px] leading-[1.14] text-[#59b17a] mt-[25px] md:mt-[80px] lg:mt-[100px]">

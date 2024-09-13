@@ -46,7 +46,7 @@ export const CartItem: React.FC<ICartItemProps> = ({
       <img
         src={photo}
         alt={name}
-        className="w-[120px] h-[120px] sm-max:h-[130px] md:w-[122px] md:h-[133px] rounded-[27px] border-[1.15px] border-[#f1f1f1]"
+        className="shrink-0 w-[120px] h-[120px] sm-max:h-[130px] md:w-[122px] md:h-[133px] rounded-[27px] border-[1.15px] border-[#f1f1f1]"
       />
       <div className="w-full flex flex-col">
         <div className="flex flex-col gap-[10px] md:gap-0 md:flex-row md:justify-between">
