@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 
 import type { ICartProduct, IOrder } from "../../types";
 import { addOrder, getCart, updateCart } from "./cartOperations";
-import { logoutUser } from "../auth/authOperations";
+import { logoutUser, refreshUser } from "../auth/authOperations";
 
 export interface ICartSlice {
   products: ICartProduct[];
@@ -54,6 +54,9 @@ const cartSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(logoutUser.fulfilled, () => {
+        return initialState;
+      })
+      .addCase(refreshUser.rejected, () => {
         return initialState;
       })
       .addMatcher(
